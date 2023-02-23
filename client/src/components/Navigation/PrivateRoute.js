@@ -4,6 +4,7 @@ import Home from '../Home';
 import history from './history';
 import Landing from "../Landing"
 import ManagerLanding from "../ManagerLanding"
+import EmployeeLanding from "../EmployeeLanding"
 
 export default function PrivateRoute({
   //authenticated,
@@ -15,6 +16,7 @@ export default function PrivateRoute({
       <Switch>
       <Route path="/" exact component={Landing} />
       <Route path="/ManagerLanding" exact component={ManagerLanding} />
+      <Route path="/EmployeeLanding" exact component={EmployeeLanding} />
       </Switch>
     </Router>
   );
