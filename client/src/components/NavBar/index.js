@@ -40,12 +40,11 @@ const NavigationBar = () => {
 
 
           <Button colors = "inherit" onClick= {()=> history.push('/')}>Landing</Button>
-          <Button colors = "inherit" onClick= {()=> history.push('/Review')}>Review</Button>
-          <Button colors = "inherit" onClick= {()=> history.push('/Search')}>Search</Button>
-          <Button colors = "inherit" onClick= {()=> history.push('/myPage')}>myPage</Button>
+          <Button colors = "inherit" onClick= {()=> history.push('/ManagerLanding')}>Review</Button>
+          <Button colors = "inherit" onClick= {()=> history.push('/EmployeeLanding')}>Search</Button>
+          <Button colors = "inherit" onClick= {()=> history.push('/M_EmployeeLoggedHours')}>myPage</Button>
+          <Button colors = "inherit" onClick= {()=> history.push('/M_EmployeeLoggedHours')}>myPage</Button>
           
-          
-
 
 
             
