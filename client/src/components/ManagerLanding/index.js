@@ -4,20 +4,20 @@ import React, { Component } from 'react';
 import history from "../Navigation/history"
 
 
-const Landing = () =>  {
+const ManagerLanding = () =>  {
 
     return (
         <div>
             <Typography variant = 'h3' colors = 'black' >
-                Welcome to JavaScriptJatt's FuelFlex landing page
+                Welcome Manager's to your landing page
             </Typography>
 
             <Typography variant = 'h5' colors = 'darkblue' >
-                Use the log in box below to select who you are logging in as
+                Use the navigation bar to switch to your other pages
             </Typography>
 
             <Typography variant = 'h6' colors = 'darkblue' >
-                If you are looking to apply to work at our stations follow the link below
+                Here are your immediate messages:
             </Typography>
 
 
@@ -26,4 +26,4 @@ const Landing = () =>  {
     );
 }
 
-export default Landing;
+export default ManagerLanding;
