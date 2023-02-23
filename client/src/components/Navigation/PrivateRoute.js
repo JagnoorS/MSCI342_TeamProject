@@ -8,6 +8,9 @@ import EmployeeLanding from "../EmployeeLanding"
 import M_EmployeeLoggedHours from "../M_EmployeeLoggedHours"
 import E_LogEmployeeHours from "../E_LogEmployeeHours"
 
+import NavBar from "../NavBar"
+
+
 export default function PrivateRoute({
   //authenticated,
   //...rest
@@ -15,6 +18,7 @@ export default function PrivateRoute({
   return (
     
     <Router history={history}>
+      <NavBar/>
       <Switch>
       <Route path="/" exact component={Landing} />
       <Route path="/ManagerLanding" exact component={ManagerLanding} />
