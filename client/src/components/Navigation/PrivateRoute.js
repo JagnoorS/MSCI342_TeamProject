@@ -6,6 +6,7 @@ import Landing from "../Landing"
 import ManagerLanding from "../ManagerLanding"
 import EmployeeLanding from "../EmployeeLanding"
 import M_EmployeeLoggedHours from "../M_EmployeeLoggedHours"
+import E_LogEmployeeHours from "../E_LogEmployeeHours"
 
 export default function PrivateRoute({
   //authenticated,
@@ -19,7 +20,9 @@ export default function PrivateRoute({
       <Route path="/ManagerLanding" exact component={ManagerLanding} />
       <Route path="/EmployeeLanding" exact component={EmployeeLanding} />
       <Route path="/M_EmployeeLoggedHours" exact component={M_EmployeeLoggedHours} />
+      <Route path="/E_LogEmployeeHours" exact component={E_LogEmployeeHours} />
       </Switch>
     </Router>
   );
 }
+
