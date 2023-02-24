@@ -39,7 +39,7 @@ const NavigationBar = () => {
           </Typography>
 
 
-          <Button colors = "inherit" onClick= {()=> history.push('/')}>Login?</Button>
+          <Button colors = "inherit" onClick= {()=> history.push('/')}>Home</Button>
           <Button colors = "inherit" onClick= {()=> history.push('/ManagerLanding')}>Manager Landing</Button>
           <Button colors = "inherit" onClick= {()=> history.push('/EmployeeLanding')}>Employee Landing</Button>
           <Button colors = "inherit" onClick= {()=> history.push('/M_EmployeeLoggedHours')}>M_ View employee logged hours</Button>
