@@ -9,6 +9,7 @@ import M_EmployeeLoggedHours from "../M_EmployeeLoggedHours"
 import E_LogEmployeeHours from "../E_LogEmployeeHours"
 
 import NavBar from "../NavBar"
+import M_CreatingPayroll from "../M_CreatingPayroll";
 
 
 export default function PrivateRoute({
@@ -25,6 +26,7 @@ export default function PrivateRoute({
       <Route path="/EmployeeLanding" exact component={EmployeeLanding} />
       <Route path="/M_EmployeeLoggedHours" exact component={M_EmployeeLoggedHours} />
       <Route path="/E_LogEmployeeHours" exact component={E_LogEmployeeHours} />
+      <Route path="/M_CreatingPayroll" exact component={M_CreatingPayroll} />
       </Switch>
     </Router>
   );
