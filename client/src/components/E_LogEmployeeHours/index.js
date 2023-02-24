@@ -1,29 +1,38 @@
 import { Link, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
 // import Link from "@material-ui/core/Link";
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 import history from "../Navigation/history"
 
-
-const E_LogEmployeeHours = () =>  {
-
+const useStyles = makeStyles((theme) => ({
+    container: {
+      display: 'flex',
+      flexWrap: 'wrap',
+    },
+    textField: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+      width: 200,
+    },
+  }));
+  
+  export default function DatePickers() {
+    const classes = useStyles();
+  
     return (
-        <div>
-            <Typography variant = 'h3' colors = 'black' >
-                Welcome ""INSERT EMPLOYEE NAME"" log your worked hours here
-            </Typography>
-
-            <Typography variant = 'h5' colors = 'darkblue' >
-              
-            </Typography>
-
-            <Typography variant = 'h6' colors = 'darkblue' >
-               
-            </Typography>
-
-
-        </div>
-        
+      <form className={classes.container} noValidate>
+        <TextField
+          id="date"
+          label="DATE WORKED"
+          type="date"
+          defaultValue="2023-02-20"
+          className={classes.textField}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+      </form>
     );
-}
-
-export default E_LogEmployeeHours;
+  }
+  
