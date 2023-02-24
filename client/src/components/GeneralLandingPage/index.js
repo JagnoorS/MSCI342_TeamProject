@@ -4,20 +4,20 @@ import React, { Component } from 'react';
 import history from "../Navigation/history"
 
 
-const Landing = () =>  {
+const GeneralLandingPage = () =>  {
 
     return (
         <div>
             <Typography variant = 'h3' colors = 'black' >
-                Welcome to JavaScriptJatt's FuelFlex landing page
+                Welcome to FuelFlex
             </Typography>
 
             <Typography variant = 'h5' colors = 'darkblue' >
-                Navigate to log in page to access user features
+                Click log in to access our features
             </Typography>
 
             <Typography variant = 'h6' colors = 'darkblue' >
-                If you are looking to apply to work at our stations click the button below
+                Here are your immediate messages:
             </Typography>
 
 
@@ -26,4 +26,4 @@ const Landing = () =>  {
     );
 }
 
-export default Landing;
+export default GeneralLandingPage;
