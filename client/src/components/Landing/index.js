@@ -17,7 +17,7 @@ const Landing = () =>  {
             </Typography>
 
             <Typography variant = 'h6' colors = 'darkblue' >
-                If you are looking to apply to work at our stations click the button below
+                If you are a non employee click the button below
             </Typography>
 
 
