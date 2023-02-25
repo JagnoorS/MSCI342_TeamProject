@@ -4,20 +4,23 @@ import React, { Component } from 'react';
 import history from "../Navigation/history"
 
 
-const Landing = () =>  {
+const NonEmployeePage = () =>  {
 
     return (
         <div>
             <Typography variant = 'h3' colors = 'black' >
-                Welcome to JavaScriptJatt's FuelFlex landing page
+                Welcome
             </Typography>
 
             <Typography variant = 'h5' colors = 'darkblue' >
-                Navigate to log in page to access user features
+                If you wish to apply to work at one of our locations click here
             </Typography>
 
             <Typography variant = 'h6' colors = 'darkblue' >
-                If you are a non employee click the button below
+                If you want to submit feedback enter it here
+            </Typography>
+            <Typography variant = 'h6' colors = 'darkblue' >
+                If you want to submit a complaint enter it here
             </Typography>
 
 
@@ -26,4 +29,4 @@ const Landing = () =>  {
     );
 }
 
-export default Landing;
+export default NonEmployeePage;
