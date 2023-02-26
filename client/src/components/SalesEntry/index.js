@@ -1,29 +1,146 @@
-import { Link, Typography } from '@material-ui/core';
-import React, { Component } from 'react';
-// import Link from "@material-ui/core/Link";
-import history from "../Navigation/history"
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-
-const SalesEntry = () =>  {
-
-    return (
-        <div>
-            <Typography variant = 'h3' colors = 'black' >
-                Creating payroll
-            </Typography>
-
-            <Typography variant = 'h5' colors = 'darkblue' >
-                
-            </Typography>
-
-            <Typography variant = 'h6' colors = 'darkblue' >
-               
-            </Typography>
-
-
-        </div>
-        
-    );
+function Copyright(props) {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit">
+        FuelFlex
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
 }
 
-export default SalesEntry;
+const theme = createTheme();
+
+export default function SignUp() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
+  };
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Typography component="h1" variant="h7">
+            Daily Sales Entry
+          </Typography>
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+            <Grid>
+                <TextField
+                    id="date"
+                    label="Reporting Date"
+                    type="date"
+                    defaultValue=""
+                    InputLabelProps={{
+                    shrink: true,
+                    }}
+                    />
+            </Grid>
+            <Grid 
+                container
+                direction="row"
+                >
+                <TextField
+                    id = "Volume"
+                    label = "Regular Volume (L)"
+                    name = "Volume"
+                />
+                <TextField
+                    id = "Price"
+                    label = "Purchase Price (L)"
+                    name = "Price"
+                    />
+                <TextField
+                    id = "Price"
+                    label = "Sell Price (L)"
+                    name = "Price"
+                    />
+            </Grid>
+            <Grid 
+                container
+                direction="row"
+                >
+                <TextField
+                    id = "Volume"
+                    label = "Mid-Grade Volume (L)"
+                    name = "Volume"
+                />
+                <TextField
+                    id = "Price"
+                    label = "Purchase Price (L)"
+                    name = "Price"
+                    />
+                <TextField
+                    id = "Price"
+                    label = "Sell Price (L)"
+                    name = "Price"
+                    />
+            </Grid>
+            <Grid 
+                container
+                direction="row"
+                >
+                <TextField
+                    id = "Volume"
+                    label = "Supreme Volume (L)"
+                    name = "Volume"
+                />
+                <TextField
+                    id = "Price"
+                    label = "Purchase Price (L)"
+                    name = "Price"
+                    />
+                <TextField
+                    id = "Price"
+                    label = "Sell Price (L)"
+                    name = "Price"
+                    />
+            </Grid>      
+            <Button
+              type="Submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >Submit
+            </Button>
+            
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+              </Grid>
+            </Grid>
+            </Box>
+          </Box>
+        <Copyright sx={{ mt: 5 }} />
+      </Container>
+    </ThemeProvider>
+  );
+}
