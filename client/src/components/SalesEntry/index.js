@@ -38,15 +38,15 @@ export default function SignUp() {
   };
 
 const [reportingDate, setReportingDate] = React.useState("");
-const [regularVolume, setRegularVolume] = React.useState("");
-const [regularPurchasePrice, setRegularPurchasePrice] = React.useState("");
-const [regularSellPrice, setRegularSellPrice] = React.useState("");
-const [mid_gradeVolume, setMid_GradeVolume] = React.useState("");
-const [mid_gradePurchasePrice, setMid_GradePurchasePrice] = React.useState("");
-const [mid_gradeSellPrice, setMid_GradeSellPrice] = React.useState("");
-const [premiumVolume, setPremiumVolume] = React.useState("");
-const [premiumPurchasePrice, setPremiumPurchasePrice] = React.useState("");
-const [premiumSellPrice, setPremiumSellPrice] = React.useState("");
+const [regularVolume, setRegularVolume] = React.useState();
+const [regularPurchasePrice, setRegularPurchasePrice] = React.useState();
+const [regularSellPrice, setRegularSellPrice] = React.useState();
+const [mid_gradeVolume, setMid_GradeVolume] = React.useState();
+const [mid_gradePurchasePrice, setMid_GradePurchasePrice] = React.useState();
+const [mid_gradeSellPrice, setMid_GradeSellPrice] = React.useState();
+const [premiumVolume, setPremiumVolume] = React.useState();
+const [premiumPurchasePrice, setPremiumPurchasePrice] = React.useState();
+const [premiumSellPrice, setPremiumSellPrice] = React.useState();
 
 const salesEntry = {
   reportingDate: reportingDate,
