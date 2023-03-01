@@ -58,6 +58,28 @@ app.post('/api/addApplication', (req, res) => {
 	connection.end();
 });
 
+app.post('/api/addSalesEntry', (req, res) => {
+
+	let connection = mysql.createConnection(config);
+
+	let sql = `INSERT INTO sales_Entry(reporting_date, r_volume, r_purchase_price, r_sell_price, r_net_profit, m_volume, m_purchase_price, m_sell_price, m_net_profit, s_volume, s_purchase_price, s_sell_price, s_net_profit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+	console.log(sql);
+	let data = [req.body.reportingDate, req.body.regularVolume, req.body.regularPurchasePrice, req.body.regularSellPrice, req.body.regularNetProfit, req.body.mid_gradeVolume, req.body.mid_gradePurchasePrice, req.body.mid_gradeSellPrice, req.body.mid_gradeNetProfit, req.body.premiumVolume, req.body.premiumPurchasePrice, req.body.premiumSellPrice, req.body.premiumNetProfit];
+	console.log(data);
+
+	connection.query(sql, data, (error, results, fields) => {
+		if (error) {
+			return console.error(error.message);
+		}
+
+		console.log(results);
+		let string = JSON.stringify(results);
+		//let obj = JSON.parse(string);
+		res.send({ express: string });
+	});
+	connection.end();
+});
+
 
 
 app.listen(port, () => console.log(`Listening on port ${port}`)); //for the dev version
