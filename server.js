@@ -36,6 +36,28 @@ app.post('/api/loadUserSettings', (req, res) => {
 	connection.end();
 });
 
+app.post('/api/addApplication', (req, res) => {
+
+	let connection = mysql.createConnection(config);
+
+	let sql = `INSERT INTO application_Info(first_name, last_name, address, city, province, postal_code, phone_number, email_address, date_of_birth) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+	console.log(sql);
+	let data = [req.body.firstName, req.body.lastName, req.body.address, req.body.city, req.body.province, req.body.zip, req.body.phone, req.body.email, req.body.dob];
+	console.log(data);
+
+	connection.query(sql, data, (error, results, fields) => {
+		if (error) {
+			return console.error(error.message);
+		}
+
+		console.log(results);
+		let string = JSON.stringify(results);
+		//let obj = JSON.parse(string);
+		res.send({ express: string });
+	});
+	connection.end();
+});
+
 
 
 app.listen(port, () => console.log(`Listening on port ${port}`)); //for the dev version

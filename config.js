@@ -1,7 +1,7 @@
 let config = {
-  host    : 'ov-research-4.uwaterloo.ca', //find an ec2 link
+  host    : 'ec2-18-216-101-119.us-east-2.compute.amazonaws.com', //find an ec2 link
   user    : 'js3sangh',
-  password: '',
+  password: '#xZKW5v9sjFps4efC',
   database: 'js3sangh'
 };
  

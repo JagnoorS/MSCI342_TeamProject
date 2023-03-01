@@ -13,6 +13,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+
+const serverURL = ""; //enable for dev mode
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -38,6 +40,45 @@ export default function SignUp() {
     });
   };
 
+  const [firstName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
+  const [address, setAddress] = React.useState("");
+  const [city, setCity] = React.useState("");
+  const [province, setProvince] = React.useState("");
+  const [zip, setZip] = React.useState("");
+  const [phone, setPhone] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [dob, setDob] = React.useState("");
+
+  const application = {
+    firstName: firstName,
+    lastName: lastName,
+    address: address,
+    city: city,
+    province: province,
+    zip: zip,
+    phone: phone,
+    email: email,
+    dob: dob
+  }
+
+  const callApiaddApplication = async () => {
+    const url = serverURL + "/api/addApplication";
+    console.log(url);
+
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(application),
+      headers:{
+        'Content-Type':"application/json"
+      }
+    });
+    const body = await response.json();
+    if (response.status !== 200) throw Error(body.message);
+    return body;
+  }
+
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -60,7 +101,6 @@ export default function SignUp() {
                 <Typography component="h2" variant="h5" align = 'left'>
                     Personal Information
                 </Typography>
-
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -71,6 +111,8 @@ export default function SignUp() {
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                 />
               </Grid>
 
@@ -82,6 +124,8 @@ export default function SignUp() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                 />
                 </Grid>
 
@@ -93,6 +137,8 @@ export default function SignUp() {
                   label="Address"
                   name="Address"
                   autoComplete="Address"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
                 />
               </Grid>
 
@@ -104,6 +150,8 @@ export default function SignUp() {
                   label="City"
                   name="City"
                   autoFocus
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
                 />
               </Grid>
 
@@ -115,6 +163,8 @@ export default function SignUp() {
                   label="Province"
                   name="Province"
                   autoFocus
+                  value={province}
+                  onChange={(e) => setProvince(e.target.value)}
                 />
               </Grid>
 
@@ -126,6 +176,8 @@ export default function SignUp() {
                   label="Zip"
                   name="Zip"
                   autoFocus
+                  value={zip}
+                  onChange={(e) => setZip(e.target.value)}
                 />
               </Grid>
 
@@ -137,6 +189,8 @@ export default function SignUp() {
                   label="Phone"
                   name="Phone"
                   autoFocus
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                 />
               </Grid>
 
@@ -148,6 +202,8 @@ export default function SignUp() {
                   label="Email Address"
                   name="email"
                   autoFocus
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </Grid>
 
@@ -166,6 +222,8 @@ export default function SignUp() {
                     InputLabelProps={{
                     shrink: true,
                     }}
+                    value={dob}
+                    onChange={(e) => setDob(e.target.value)}
                     />
                 </Grid>
             </Grid>
@@ -192,8 +250,10 @@ export default function SignUp() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-            >
-              Apply
+            onClick={callApiaddApplication}  
+            >Apply
+              
+              
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
