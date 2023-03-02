@@ -12,6 +12,7 @@ import NavBar from "../NavBar"
 import SalesEntry from "../SalesEntry";
 import NonEmployeePage from "../NonEmployeePage";
 import AppTest from "../AppTest";
+import Help from "../Help";
 
 
 export default function PrivateRoute({
@@ -31,6 +32,7 @@ export default function PrivateRoute({
       <Route path="/SalesEntry" exact component={SalesEntry} />
       <Route path="/NonEmployeePage" exact component={NonEmployeePage} />
       <Route path="/Application" exact component={AppTest} />
+      <Route path="/Help" exact component={Help} />
       </Switch>
     </Router>
   );
