@@ -56,10 +56,14 @@ export default function SignUp() {
           {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar> */}
-          <Typography component="h1" variant="h7">
+          <Typography component="h1" variant="h3">
             Help Page
           </Typography>
+
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+            <Typography component="h3" variant="h7">
+            Input your information and your error
+            </Typography>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -84,30 +88,33 @@ export default function SignUp() {
                 />
                 </Grid>
             
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={100}>
                 <TextField
                     id="standard-textarea"
-                    label="Multiline Placeholder"
-                    placeholder="Placeholder"
+                    label="Enter your issue here"
+                    required
+                    fullWidth
+                    placeholder="Issue"
                     multiline
-                    maxRows={5}
-                    variant="standard"
+                    maxRows={10}
+                    variant="outlined"
                 />
                 </Grid>
+
+              
+
 
             <Button
               type="Submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={() => {
+                alert('Your issue has been received');
+              }}
             >Submit
             </Button>
             <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link href="#" variant="body2">
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
             </Grid>
             </Grid>
           </Box>
