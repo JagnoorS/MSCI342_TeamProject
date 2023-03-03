@@ -11,7 +11,7 @@ import E_LogEmployeeHours from "../E_LogEmployeeHours"
 import NavBar from "../NavBar"
 import SalesEntry from "../SalesEntry";
 import NonEmployeePage from "../NonEmployeePage";
-import AppTest from "../AppTest";
+import AppTest from "../Application";
 import Help from "../Help";
 
 
