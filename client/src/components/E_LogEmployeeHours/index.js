@@ -14,6 +14,8 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import history from "../Navigation/history"
 
+const serverURL = ""; //enable for dev mode
+
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -38,6 +40,38 @@ export default function SignUp() {
       password: data.get('password'),
     });
   };
+  const [firstName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
+  const [reportingDate, setReportingDate] = React.useState("");
+  const [startTime, setStartTime] = React.useState();
+  const [endTime, setEndTime] = React.useState();
+
+
+  const employeeHours = {
+    firstName: firstName,
+    lastName: lastName,
+    reportingDate: reportingDate,
+    startTime: startTime,
+    endTime: endTime,
+    timeWorked: (endTime - startTime)
+  }
+
+
+  const callApiaddEmployeeHours = async () => {
+    const url = serverURL + "/api/addEmployeeHours";
+    console.log(url);
+
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(employeeHours),
+      headers: {
+        'Content-Type': "application/json"
+      }
+    });
+    const body = await response.json();
+    if (response.status !== 200) throw Error(body.message);
+    return body;
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -55,6 +89,32 @@ export default function SignUp() {
             Hour Tracking Form
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="given-name"
+                  name="firstName"
+                  required
+                  fullWidth
+                  id="firstName"
+                  label="First Name"
+                  autoFocus
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </Grid>
+
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="lastName"
+                  label="Last Name"
+                  name="lastName"
+                  autoComplete="family-name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+                </Grid>
                <Grid>
                 <TextField
                     id="date"
@@ -64,6 +124,8 @@ export default function SignUp() {
                     InputLabelProps={{
                     shrink: true,
                     }}
+                    value={reportingDate}
+                    onChange={(e) => setReportingDate(e.target.value)}
                     />
                 </Grid>
                 <Grid>
@@ -78,6 +140,8 @@ export default function SignUp() {
                     inputProps = {{
                       step: 300,
                     }}
+                    value={startTime}
+                    onChange={(e) => setStartTime(e.target.value)}
                     />
                 </Grid>
                 <Grid>
@@ -92,16 +156,22 @@ export default function SignUp() {
                     inputProps = {{
                       step: 300,
                     }}
+                    value={endTime}
+                    onChange={(e) => setEndTime(e.target.value)}
                     />
                 </Grid>
                 <Typography component="h4" variant="h7">
-                Total Hours worked Today:
+                Total Hours worked Today: {endTime - startTime}
                 </Typography>
             <Button
               type="Submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={() => {
+                callApiaddEmployeeHours();
+                alert('Your Hours have been logged')
+              }}
             >Submit
             </Button>
             

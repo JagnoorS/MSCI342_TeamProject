@@ -40,6 +40,32 @@ export default function SignUp() {
     });
   };
 
+  const [firstName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
+  const [issue, setIssue] = React.useState("");
+
+  const help = {
+    firstName: firstName,
+    lastName: lastName,
+    issue: issue
+  }
+
+  const callApiaddIssue = async () => {
+    const url = serverURL + "/api/addIssue";
+    console.log(url);
+
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(help),
+      headers:{
+        'Content-Type':"application/json"
+      }
+    });
+    const body = await response.json();
+    if (response.status !== 200) throw Error(body.message);
+    return body;
+  }
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -74,6 +100,8 @@ export default function SignUp() {
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                 />
               </Grid>
 
@@ -84,7 +112,10 @@ export default function SignUp() {
                   id="lastName"
                   label="Last Name"
                   name="lastName"
-                  autoComplete="family-name"                  
+                  autoComplete="family-name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+
                 />
                 </Grid>
             
@@ -98,6 +129,8 @@ export default function SignUp() {
                     multiline
                     maxRows={10}
                     variant="outlined"
+                    value={issue}
+                    onChange={(e) => setIssue(e.target.value)}
                 />
                 </Grid>
 
@@ -110,6 +143,7 @@ export default function SignUp() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
               onClick={() => {
+                callApiaddIssue();
                 alert('Your issue has been received');
               }}
             >Submit
