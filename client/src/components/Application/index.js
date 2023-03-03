@@ -100,16 +100,16 @@ const Locations = [
           {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar> */}
-          <Typography component="h1" variant="h7">
+          <Typography ref={ref} component="h1" variant="h7">
             Application form
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-                <Typography component="h2" variant="h5" align = 'left'>
+                <Typography ref={ref} component="h2" variant="h5" align = 'left'>
                     Personal Information
                 </Typography>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
-                <TextField
+                <TextField ref={ref}
                   autoComplete="given-name"
                   name="firstName"
                   required
@@ -123,7 +123,7 @@ const Locations = [
               </Grid>
 
               <Grid item xs={12} sm={6}>
-                <TextField
+                <TextField ref={ref}
                   required
                   fullWidth
                   id="lastName"
@@ -136,7 +136,7 @@ const Locations = [
                 </Grid>
 
                 <Grid item xs={12}>
-                <TextField
+                <TextField ref={ref}
                   required
                   fullWidth
                   id="Address"
@@ -149,7 +149,7 @@ const Locations = [
               </Grid>
 
               <Grid item xs={12}>
-                <TextField
+                <TextField ref={ref}
                   required
                   fullWidth
                   id="City"
@@ -162,7 +162,7 @@ const Locations = [
               </Grid>
 
               <Grid item xs={12}>
-                <TextField
+                <TextField ref={ref}
                   required
                   fullWidth
                   id="Province"
@@ -175,7 +175,7 @@ const Locations = [
               </Grid>
 
               <Grid item xs={12}>
-                <TextField
+                <TextField ref={ref}
                   required
                   fullWidth
                   id="Zip"
@@ -188,7 +188,7 @@ const Locations = [
               </Grid>
 
               <Grid item xs={12}>
-                <TextField
+                <TextField ref={ref}
                   required
                   fullWidth
                   id="Phone"
@@ -201,7 +201,7 @@ const Locations = [
               </Grid>
 
               <Grid item xs={12}>
-                <TextField
+                <TextField ref={ref}
                   required
                   fullWidth
                   id="email"
@@ -220,7 +220,7 @@ const Locations = [
                 />
               </Grid> */}
                <Grid item xs={12}>
-                <TextField
+                <TextField ref={ref}
                     id="date"
                     label="Date of Birth"
                     type="date"
@@ -234,7 +234,7 @@ const Locations = [
                     />
                 </Grid>
                 <Grid item xs={12}>
-                <Autocomplete
+                <Autocomplete ref={ref}
                   disablePortal
                   id="combo-box-demo"
                   options={Locations}
@@ -252,6 +252,7 @@ const Locations = [
 
 
             <Button
+              ref={ref}
               type="Submit"
               fullWidth
               variant="contained"
