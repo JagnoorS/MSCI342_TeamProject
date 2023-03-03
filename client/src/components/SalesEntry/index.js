@@ -37,52 +37,52 @@ export default function SignUp() {
     const data = new FormData(event.currentTarget);
   };
 
-const [reportingDate, setReportingDate] = React.useState("");
-const [regularVolume, setRegularVolume] = React.useState();
-const [regularPurchasePrice, setRegularPurchasePrice] = React.useState();
-const [regularSellPrice, setRegularSellPrice] = React.useState();
-const [mid_gradeVolume, setMid_GradeVolume] = React.useState();
-const [mid_gradePurchasePrice, setMid_GradePurchasePrice] = React.useState();
-const [mid_gradeSellPrice, setMid_GradeSellPrice] = React.useState();
-const [premiumVolume, setPremiumVolume] = React.useState();
-const [premiumPurchasePrice, setPremiumPurchasePrice] = React.useState();
-const [premiumSellPrice, setPremiumSellPrice] = React.useState();
+  const [reportingDate, setReportingDate] = React.useState("");
+  const [regularVolume, setRegularVolume] = React.useState();
+  const [regularPurchasePrice, setRegularPurchasePrice] = React.useState();
+  const [regularSellPrice, setRegularSellPrice] = React.useState();
+  const [mid_gradeVolume, setMid_GradeVolume] = React.useState();
+  const [mid_gradePurchasePrice, setMid_GradePurchasePrice] = React.useState();
+  const [mid_gradeSellPrice, setMid_GradeSellPrice] = React.useState();
+  const [premiumVolume, setPremiumVolume] = React.useState();
+  const [premiumPurchasePrice, setPremiumPurchasePrice] = React.useState();
+  const [premiumSellPrice, setPremiumSellPrice] = React.useState();
 
-const salesEntry = {
-  reportingDate: reportingDate,
-  regularVolume: regularVolume,
-  regularPurchasePrice: regularPurchasePrice,
-  regularSellPrice: regularSellPrice,
-  regularNetProfit: (regularSellPrice - regularPurchasePrice) * regularVolume,
-  mid_gradeVolume: mid_gradeVolume,
-  mid_gradePurchasePrice: mid_gradePurchasePrice,
-  mid_gradeSellPrice: mid_gradeSellPrice,
-  mid_gradeNetProfit: (mid_gradeSellPrice - mid_gradePurchasePrice) * mid_gradeVolume,
-  premiumVolume: premiumVolume,
-  premiumPurchasePrice: premiumPurchasePrice,
-  premiumSellPrice: premiumSellPrice,
-  premiumNetProfit: (premiumSellPrice - premiumPurchasePrice) * premiumVolume
-}
+  const salesEntry = {
+    reportingDate: reportingDate,
+    regularVolume: regularVolume,
+    regularPurchasePrice: regularPurchasePrice,
+    regularSellPrice: regularSellPrice,
+    regularNetProfit: (regularSellPrice - regularPurchasePrice) * regularVolume,
+    mid_gradeVolume: mid_gradeVolume,
+    mid_gradePurchasePrice: mid_gradePurchasePrice,
+    mid_gradeSellPrice: mid_gradeSellPrice,
+    mid_gradeNetProfit: (mid_gradeSellPrice - mid_gradePurchasePrice) * mid_gradeVolume,
+    premiumVolume: premiumVolume,
+    premiumPurchasePrice: premiumPurchasePrice,
+    premiumSellPrice: premiumSellPrice,
+    premiumNetProfit: (premiumSellPrice - premiumPurchasePrice) * premiumVolume
+  }
 
-const callApiaddSalesEntry = async () => {
-  const url = serverURL + "/api/addSalesEntry";
-  console.log(url);
+  const callApiaddSalesEntry = async () => {
+    const url = serverURL + "/api/addSalesEntry";
+    console.log(url);
 
-  const response = await fetch(url, {
-    method: "POST",
-    body: JSON.stringify(salesEntry),
-    headers:{
-      'Content-Type':"application/json"
-    }
-  });
-  const body = await response.json();
-  if (response.status !== 200) throw Error(body.message);
-  return body;
-}
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(salesEntry),
+      headers: {
+        'Content-Type': "application/json"
+      }
+    });
+    const body = await response.json();
+    if (response.status !== 200) throw Error(body.message);
+    return body;
+  }
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="sm">
         <CssBaseline />
         <Box
           sx={{
@@ -96,113 +96,136 @@ const callApiaddSalesEntry = async () => {
             Daily Sales Entry
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid>
+            <Grid container spacing={2}>
+              <Grid item sm={10} style={{ display:"inline-grid" ,justifyItems: "center", marginLeft: 48}}>
                 <TextField
-                    id="date"
-                    label="Reporting Date"
-                    type="date"
-                    defaultValue=""
-                    InputLabelProps={{
+                  id="date"
+                  label="Reporting Date"
+                  type="date"
+                  defaultValue=""
+                  sx={{ width: 175 }}
+                  InputLabelProps={{
                     shrink: true,
-                    }}
-                    value={reportingDate}
-                    onChange={(e) => setReportingDate(e.target.value)}
-                    />
-            </Grid>
-            <Grid 
+                  }}
+                  value={reportingDate}
+                  onChange={(e) => setReportingDate(e.target.value)}
+                />
+              </Grid>
+              <Grid
+                item xs={12} sm={4}
+              >
+                <TextField
+                  id="Volume"
+                  label="Regular Volume (L)"
+                  name="Volume"
+                  value={regularVolume}
+                  onChange={(e) => setRegularVolume(e.target.value)}
+                />
+              </Grid>
+
+              <Grid
+                item xs={12} sm={4}
+              >
+                <TextField
+                  id="Price"
+                  label="Purchase Price (L)"
+                  name="Price"
+                  value={regularPurchasePrice}
+                  onChange={(e) => setRegularPurchasePrice(e.target.value)}
+                />
+              </Grid>
+
+              <Grid
+                item xs={12} sm={4}
+              >
+                <TextField
+                  id="Price"
+                  label="Sell Price (L)"
+                  name="Price"
+                  value={regularSellPrice}
+                  onChange={(e) => setRegularSellPrice(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} sm={4}
                 container
                 direction="row"
-                >
+              >
                 <TextField
-                    id = "Volume"
-                    label = "Regular Volume (L)"
-                    name = "Volume"
-                    value={regularVolume}
-                    onChange={(e) => setRegularVolume(e.target.value)}
+                  id="Volume"
+                  label="Mid-Grade Volume (L)"
+                  name="Volume"
+                  value={mid_gradeVolume}
+                  onChange={(e) => setMid_GradeVolume(e.target.value)}
                 />
+                </Grid>
+                <Grid item xs={12} sm={4}>
                 <TextField
-                    id = "Price"
-                    label = "Purchase Price (L)"
-                    name = "Price"
-                    value={regularPurchasePrice}
-                    onChange={(e) => setRegularPurchasePrice(e.target.value)}
-                    />
-                <TextField
-                    id = "Price"
-                    label = "Sell Price (L)"
-                    name = "Price"
-                    value={regularSellPrice}
-                    onChange={(e) => setRegularSellPrice(e.target.value)}
-                    />
-            </Grid>
-            <Grid 
-                container
-                direction="row"
-                >
-                <TextField
-                    id = "Volume"
-                    label = "Mid-Grade Volume (L)"
-                    name = "Volume"
-                    value={mid_gradeVolume}
-                    onChange={(e) => setMid_GradeVolume(e.target.value)}
+                  id="Price"
+                  label="Purchase Price (L)"
+                  name="Price"
+                  value={mid_gradePurchasePrice}
+                  onChange={(e) => setMid_GradePurchasePrice(e.target.value)}
                 />
+                </Grid>
+                <Grid item xs={12} sm={4}>
                 <TextField
-                    id = "Price"
-                    label = "Purchase Price (L)"
-                    name = "Price"
-                    value={mid_gradePurchasePrice}
-                    onChange={(e) => setMid_GradePurchasePrice(e.target.value)}
-                    />
-                <TextField
-                    id = "Price"
-                    label = "Sell Price (L)"
-                    name = "Price"
-                    value={mid_gradeSellPrice}
-                    onChange={(e) => setMid_GradeSellPrice(e.target.value)}
-                    />
-            </Grid>
-            <Grid 
-                container
-                direction="row"
-                >
-                <TextField
-                    id = "Volume"
-                    label = "Supreme Volume (L)"
-                    name = "Volume"
-                    value={premiumVolume}
-                    onChange={(e) => setPremiumVolume(e.target.value)}
+                  id="Price"
+                  label="Sell Price (L)"
+                  name="Price"
+                  value={mid_gradeSellPrice}
+                  onChange={(e) => setMid_GradeSellPrice(e.target.value)}
                 />
+              </Grid>
+              <Grid
+                item xs={12} sm={4}
+              >
                 <TextField
-                    id = "Price"
-                    label = "Purchase Price (L)"
-                    name = "Price"
-                    value={premiumPurchasePrice}
-                    onChange={(e) => setPremiumPurchasePrice(e.target.value)}
-                    />
+                  id="Volume"
+                  label="Supreme Volume (L)"
+                  name="Volume"
+                  value={premiumVolume}
+                  onChange={(e) => setPremiumVolume(e.target.value)}
+                />
+                </Grid>
+                <Grid
+                item xs={12} sm={4}
+              >
                 <TextField
-                    id = "Price"
-                    label = "Sell Price (L)"
-                    name = "Price"
-                    value={premiumSellPrice}
-                    onChange={(e) => setPremiumSellPrice(e.target.value)}
-                    />
-            </Grid>      
-            <Button
-              type="Submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              onClick={callApiaddSalesEntry}
-            >Submit
-            </Button>
-            
-            <Grid container justifyContent="flex-end">
-              <Grid item>
+                  id="Price"
+                  label="Purchase Price (L)"
+                  name="Price"
+                  value={premiumPurchasePrice}
+                  onChange={(e) => setPremiumPurchasePrice(e.target.value)}
+                />
+                </Grid>
+                <Grid
+                item xs={12} sm={4}
+              >
+                <TextField
+                  id="Price"
+                  label="Sell Price (L)"
+                  name="Price"
+                  value={premiumSellPrice}
+                  onChange={(e) => setPremiumSellPrice(e.target.value)}
+                />
+              </Grid>
+              <Button
+                type="Submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 2, mb: 2 }}
+                onClick={callApiaddSalesEntry}
+              >Submit
+              </Button>
+
+              <Grid container justifyContent="flex-end">
+                <Grid item>
+                </Grid>
               </Grid>
             </Grid>
-            </Box>
           </Box>
-        <Copyright sx={{ mt: 5 }} />
+        </Box>
+        <Copyright sx={{ mt: 22 }} />
       </Container>
     </ThemeProvider>
   );

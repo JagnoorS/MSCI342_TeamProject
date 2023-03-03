@@ -110,7 +110,7 @@ export default function SignUp() {
             </Grid>
             </Box>
           </Box>
-        <Copyright sx={{ mt: 50 }} />
+        <Copyright sx={{ mt: 32 }} />
       </Container>
     </ThemeProvider>
   );
