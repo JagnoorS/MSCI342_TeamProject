@@ -1,26 +1,30 @@
 import { Link, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 // import Link from "@material-ui/core/Link";
 import history from "../Navigation/history"
 
 
 const Landing = () =>  {
+        const style={
+            backgroundImage: "url(https://scontent-ord5-1.xx.fbcdn.net/v/t1.15752-9/334886435_1117431749658706_2927404428472328151_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_ohc=7KWrDEQLIP8AX_XJVQL&_nc_ht=scontent-ord5-1.xx&oh=03_AdQot3ptIzmINxdlybLW0dYOP0Mzg0oeVAL_8Bs6velAxg&oe=6429AED2)",
+            height: '100vh',
+            marginTop:'0px',
+            fontsize:'50px',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+        }
+    
+
 
     return (
-        <div>
-            <Typography variant = 'h3' colors = 'black' >
-                Welcome to JavaScriptJatt's FuelFlex landing page
-            </Typography>
-
-            <Typography variant = 'h5' colors = 'darkblue' >
-                Navigate to log in page to access user features
-            </Typography>
-
-            <Typography variant = 'h6' colors = 'darkblue' >
-                If you are a non employee click the button below
-            </Typography>
-
-
+        <div style={style}>
+            <Stack direction="row" spacing={2} height={55}>
+                <Button variant="outlined" color="error" size='large' onClick= {()=> history.push('/EmployeeLanding')}>Employees</Button>
+                <Button variant="outlined" color="error" size='large' onClick= {()=> history.push('/ManagerLanding')}>Managers</Button>
+                <Button variant="outlined" color="error" size='large' onClick= {()=> history.push('/Application')}>Customers</Button>
+            </Stack>
         </div>
         
     );
