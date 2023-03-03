@@ -19,12 +19,12 @@ const Landing = () =>  {
 
 
     return (
-        <div style={style}>
-            <Stack direction="row" spacing={2} height={55}>
-                <Button variant="outlined" color="error" size='large' onClick= {()=> history.push('/EmployeeLanding')}>Employees</Button>
-                <Button variant="outlined" color="error" size='large' onClick= {()=> history.push('/ManagerLanding')}>Managers</Button>
-                <Button variant="outlined" color="error" size='large' onClick= {()=> history.push('/Application')}>Customers</Button>
-            </Stack>
+        <div style={style} align='center'>
+            <div align='center' marginTop='50px'>
+                <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/EmployeeLanding')}>Employees</Button>
+                <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/ManagerLanding')}>Managers</Button>
+                <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/CustomerLanding')}>Customers</Button>
+            </div>
         </div>
         
     );

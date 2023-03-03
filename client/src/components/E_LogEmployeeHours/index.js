@@ -89,7 +89,8 @@ export default function SignUp() {
             Hour Tracking Form
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-          <Grid item xs={12} sm={6}>
+          <Grid Container spacing={2}>
+          <Grid >
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
@@ -103,7 +104,7 @@ export default function SignUp() {
                 />
               </Grid>
 
-              <Grid item xs={12} sm={6}>
+              <Grid>
                 <TextField
                   required
                   fullWidth
@@ -160,9 +161,6 @@ export default function SignUp() {
                     onChange={(e) => setEndTime(e.target.value)}
                     />
                 </Grid>
-                <Typography component="h4" variant="h7">
-                Total Hours worked Today: {endTime - startTime}
-                </Typography>
             <Button
               type="Submit"
               fullWidth
@@ -174,7 +172,7 @@ export default function SignUp() {
               }}
             >Submit
             </Button>
-            
+          </Grid>
             <Grid container justifyContent="flex-end">
               <Grid item>
               </Grid>

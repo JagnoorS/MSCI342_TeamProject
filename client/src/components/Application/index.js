@@ -259,7 +259,6 @@ const Locations = [
               type="Submit"
               fullWidth
               variant="contained"
-              color = "success"
               sx={{ mt: 3, mb: 2 }}
               onClick={() => {
                 callApiaddApplication();
