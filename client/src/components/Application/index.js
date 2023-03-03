@@ -12,16 +12,16 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import Autocomplete from '@mui/material/Autocomplete';
 
 const serverURL = ""; //enable for dev mode
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        FuelFlex
-      </Link>{' '}
+      <Link color="inherit">
+        FuelFlex  
+      </Link>{''}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -61,6 +61,12 @@ export default function SignUp() {
     email: email,
     dob: dob
   }
+  // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
+const Locations = [
+  { label: 'Timmins'},
+  { label: 'Barrie', year: 1972 },
+  { label: 'Waterloo', year: 1974 }
+];
 
   const callApiaddApplication = async () => {
     const url = serverURL + "/api/addApplication";
@@ -218,6 +224,7 @@ export default function SignUp() {
                     id="date"
                     label="Date of Birth"
                     type="date"
+                    fullWidth
                     defaultValue=""
                     InputLabelProps={{
                     shrink: true,
@@ -226,22 +233,21 @@ export default function SignUp() {
                     onChange={(e) => setDob(e.target.value)}
                     />
                 </Grid>
-            </Grid>
-
-            {/* <Typography component="h3" variant="h7" align="left">
-                    Date of birth
-            </Typography> */}
-
-            <Grid
-            container spacing = {2}
-            direction="column"
-            >
-            <Typography component="h3" variant="h7" align="left">
-                Location
-            </Typography>
+                <Grid item xs={12}>
+                <Autocomplete
+                  disablePortal
+                  id="combo-box-demo"
+                  options={Locations}
+                  fullWidth
+                  renderInput={(params) => <TextField {...params} label="Locations" />}
+                  />
+                  </Grid>
+             
 
 
-            </Grid>
+                </Grid>
+
+           
 
 
 
@@ -249,19 +255,16 @@ export default function SignUp() {
               type="Submit"
               fullWidth
               variant="contained"
+              color = "success"
               sx={{ mt: 3, mb: 2 }}
-            onClick={callApiaddApplication}  
+              onClick={() => {
+                alert('Your Application has been received');
+              }}
             >Apply
               
               
             </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link href="#" variant="body2">
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
-            </Grid>
+
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />
