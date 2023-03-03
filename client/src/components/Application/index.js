@@ -49,6 +49,7 @@ export default function SignUp() {
   const [phone, setPhone] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [dob, setDob] = React.useState("");
+  const [location, setLocation] = React.useState("");
 
   const application = {
     firstName: firstName,
@@ -59,13 +60,14 @@ export default function SignUp() {
     zip: zip,
     phone: phone,
     email: email,
-    dob: dob
+    dob: dob,
+    location: location
   }
-  // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
+ 
 const Locations = [
   { label: 'Timmins'},
-  { label: 'Barrie', year: 1972 },
-  { label: 'Waterloo', year: 1974 }
+  { label: 'Barrie' },
+  { label: 'Waterloo'}
 ];
 
   const callApiaddApplication = async () => {
@@ -240,6 +242,8 @@ const Locations = [
                   options={Locations}
                   fullWidth
                   renderInput={(params) => <TextField {...params} label="Locations" />}
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
                   />
                   </Grid>
              
@@ -258,7 +262,8 @@ const Locations = [
               color = "success"
               sx={{ mt: 3, mb: 2 }}
               onClick={() => {
-                alert('Your Application has been received');
+                callApiaddApplication();
+                alert('Your Application has been received')
               }}
             >Apply
               
