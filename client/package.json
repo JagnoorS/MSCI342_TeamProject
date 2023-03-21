@@ -11,6 +11,8 @@
     "@material-ui/lab": "^4.0.0-alpha.13",
     "@material-ui/styles": "^4.0.0",
     "@material/ripple": "^4.0.0",
+    "@mui-treasury/layout": "^5.0.0",
+    "@mui-treasury/mockup": "^1.2.12",
     "@mui/icons-material": "^5.11.9",
     "@mui/material": "^5.11.10",
     "@testing-library/jest-dom": "^5.16.5",
@@ -32,6 +34,8 @@
     "react-testing-library": "^8.0.1",
     "react-with-firebase-auth": "^1.0.3",
     "recompose": "^0.17.0",
+    "styled-component": "^2.8.0",
+    "styled-components": "^5.3.9",
     "survey-core": "^1.9.75",
     "survey-react-ui": "^1.9.75",
     "testing-library": "^0.0.2",
@@ -45,9 +49,6 @@
     "test": "jest",
     "cypress": "cypress open",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [

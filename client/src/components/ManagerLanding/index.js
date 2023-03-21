@@ -28,7 +28,9 @@ const ManagerLanding = () =>  {
             </div>
             <div align='center'>
             <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/M_EmployeeLoggedHours')}>Log Hours</Button>
+            <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/M_Announcements')}>Submit Announcements</Button>
             </div>
+
 
             </div>
 
