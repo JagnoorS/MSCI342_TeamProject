@@ -14,8 +14,10 @@ import NonEmployeePage from "../NonEmployeePage";
 import AppTest from "../Application";
 import Help from "../Help";
 import EmployeeAvailability from "../EmployeeAvailability";
+import ManagerChecklist from "../ManagerChecklist";
 import M_Announcements from "../M_Announcements"
 import CustomerFeedback from '../CustomerFeedback'
+
 
 
 export default function PrivateRoute({
@@ -38,6 +40,7 @@ export default function PrivateRoute({
       <Route path="/Help" exact component={Help} />
       <Route path="/CustomerLanding" exact component={CustomerLadning} />
       <Route path="/EmployeeAvailability" exact component={EmployeeAvailability} />
+      <Route path="/ManagerChecklist" exact component={ManagerChecklist} />
       <Route path="/M_Announcements" exact component={M_Announcements} />
       <Route path="/CustomerFeedback" exact component={CustomerFeedback} />
       </Switch>
