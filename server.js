@@ -146,6 +146,49 @@ app.post('/api/addAvailableHours', (req, res) => {
 	connection.end();
 });
 
+app.post('/api/addTask', (req, res) => {
+
+	let connection = mysql.createConnection(config);
+
+	let sql = `INSERT INTO Task(task_name, task_description, task_assigned_to) VALUES (?, ?, ?)`;
+	console.log(sql);
+	let data = [req.body.taskName, req.body.taskDescription, req.body.taskAssigned];
+	console.log(data);
+
+	connection.query(sql, data, (error, results, fields) => {
+		if (error) {
+			return console.error(error.message);
+		}
+
+		console.log(results);
+		let string = JSON.stringify(results);
+		//let obj = JSON.parse(string);
+		res.send({ express: string });
+	});
+	connection.end();
+});
+
+app.post('/api/gettaskName', (req, res) => {
+
+	let connection = mysql.createConnection(config);
+
+	let sql = `SELECT * FROM Task`;
+	console.log(sql);
+
+	connection.query(sql, (error, results, fields) => {
+		if (error) {
+			return console.error(error.message);
+		}
+
+		console.log(results);
+		let string = JSON.stringify(results);
+		//let obj = JSON.parse(string);
+		res.send({ express: string });
+	});
+	connection.end();
+});
+
+
 
 
 
