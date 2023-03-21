@@ -107,20 +107,7 @@ export default function SignUp() {
 
     const [taskNames, changetaskNames] = React.useState([])
 
-    const gettaskName = () => {
-        callApigettaskName()
-            .then(res => {
-                console.log("callApigettaskName returned: ", res)
-                var parsed = JSON.parse(res.express);
-                console.log("callApigettaskName parsed: ", JSON.stringify(parsed));
-                changetaskNames(parsed);
-            })
-    }
-
-    React.useEffect(() => {
-        gettaskName();
-        console.log(taskNames);
-    }, []);
+    
 
     console.log(taskNames);
 
@@ -138,6 +125,20 @@ export default function SignUp() {
         if (response.status !== 200) throw Error(body.message);
         return body;
     }
+
+    const gettaskName = () => {
+        callApigettaskName()
+            .then(res => {
+                console.log("callApigettaskName returned: ", res)
+                var parsed = JSON.parse(res.express);
+                console.log("callApigettaskName parsed: ", JSON.stringify(parsed));
+                changetaskNames(parsed);
+            })
+    }
+
+    React.useEffect(() => {
+        gettaskName();
+    }, []);
 
 
 
