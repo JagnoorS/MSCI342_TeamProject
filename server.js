@@ -255,6 +255,28 @@ app.post('/api/deleteTask', (req, res) => {
 	connection.end();
 });
 
+app.post('/api/addAnnouncement', (req, res) => {
+
+	let connection = mysql.createConnection(config);
+
+	let sql = `INSERT INTO Announcements(first_name, last_name, message, type) VALUES (?, ?, ?, ?)`;
+	console.log(sql);
+	let data = [req.body.firstName, req.body.lastName, req.body.message, req.body.type];
+	console.log(data);
+
+	connection.query(sql, data, (error, results, fields) => {
+		if (error) {
+			return console.error(error.message);
+		}
+
+		console.log(results);
+		let string = JSON.stringify(results);
+		//let obj = JSON.parse(string);
+		res.send({ express: string });
+	});
+	connection.end();
+});
+
 
 
 
