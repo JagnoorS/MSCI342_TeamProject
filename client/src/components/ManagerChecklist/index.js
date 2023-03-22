@@ -107,16 +107,47 @@ export default function SignUp() {
 
     const [taskNames, changetaskNames] = React.useState([])
 
-    
+   const gettaskName = () => {
+    callApigettaskName()
+      .then(res => {
+        console.log("callApigettaskName returned: ", res)
+        var parsed = JSON.parse(res.express);
+        console.log("callApigetaskName parsed: ", parsed);
+        changetaskNames(parsed);
+      })
+  }
 
-    console.log(taskNames);
+  React.useEffect(() => {
+    gettaskName();
+  }, []);
 
-    const callApigettaskName = async () => {
-        const url = serverURL + "/api/gettaskName";
+  const callApigettaskName = async () => {
+    const url = serverURL + "/api/gettaskName";
+    console.log(url);
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers:{
+        'Content-Type':"application/json"
+      }
+    });
+    const body = await response.json();
+    if (response.status !== 200) throw Error(body.message);
+    return body;
+  }
+
+
+    const [taskNameEdit, settaskNameEdit] = React.useState("");
+    const [taskDescriptionEdit, settaskDescriptionEdit] = React.useState("");
+    const [taskAssignedEdit, settaskAssignedEdit] = React.useState("");
+
+    const callApieditTask = async () => {
+        const url = serverURL + "/api/editTask";
         console.log(url);
 
         const response = await fetch(url, {
             method: "POST",
+            body: JSON.stringify(editTask),
             headers: {
                 'Content-Type': "application/json"
             }
@@ -126,25 +157,34 @@ export default function SignUp() {
         return body;
     }
 
-    const gettaskName = () => {
-        callApigettaskName()
-            .then(res => {
-                console.log("callApigettaskName returned: ", res)
-                var parsed = JSON.parse(res.express);
-                console.log("callApigettaskName parsed: ", JSON.stringify(parsed));
-                changetaskNames(parsed);
-            })
+    const editTask = {
+        taskNameEdit: taskNameEdit,
+        taskDescriptionEdit: taskDescriptionEdit,
+        taskAssignedEdit: taskAssignedEdit
     }
 
-    React.useEffect(() => {
-        gettaskName();
-    }, []);
 
+    const [taskNameDelete, settaskNameDelete] = React.useState("");
 
+    const callApideleteTask = async () => {
+        const url = serverURL + "/api/deleteTask";
+        console.log(url);
 
+        const response = await fetch(url, {
+            method: "POST",
+            body: JSON.stringify(deleteTask),
+            headers: {
+                'Content-Type': "application/json"
+            }
+        });
+        const body = await response.json();
+        if (response.status !== 200) throw Error(body.message);
+        return body;
+    }
 
-
-
+    const deleteTask = {
+        taskNameDelete: taskNameDelete
+    }
 
     return (
         <div align='center'>
@@ -220,10 +260,16 @@ export default function SignUp() {
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
                                 label="Age"
+                                value={taskNameEdit}
+                                onChange={(e) => settaskNameEdit(e.target.value)}
+                               
                             >
-                                {taskNames.map((task) => {
-                                    <MenuItem value={10}>{task.task_name}</MenuItem>
-                                })}
+                            {taskNames.map((item) => {
+                                return (
+                                    <MenuItem value={item.task_name}>{item.task_name}</MenuItem>
+                                )
+                                    })} 
+                            
                             </Select>
 
                         </FormControl>
@@ -237,6 +283,8 @@ export default function SignUp() {
                             multiline
                             maxRows={10}
                             variant="standard"
+                            value={taskDescriptionEdit}
+                            onChange={(e) => settaskDescriptionEdit(e.target.value)}
                         />
                         <TextField
                             autoFocus
@@ -246,11 +294,18 @@ export default function SignUp() {
                             type="text"
                             fullWidth
                             variant="standard"
+                            value = {taskAssignedEdit}
+                            onChange={(e) => settaskAssignedEdit(e.target.value)}
                         />
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={handleCloseEdit}>Cancel</Button>
-                        <Button onClick={handleCloseEdit}>Edit</Button>
+                        <Button onClick={() => {
+                            callApieditTask();
+                            handleCloseEdit();
+                            alert('Your Task has been edited!');
+                        }}>Edit
+                        </Button>
                     </DialogActions>
                 </Dialog>
 
@@ -268,19 +323,26 @@ export default function SignUp() {
                             <Select
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
-                                //value={age}
                                 label="Age"
-                            //onChange={handleChange}
+                                value={taskNameDelete}
+                                onChange={(e) => settaskNameDelete(e.target.value)}
                             >
-                                <MenuItem value={'Cleaning'}>cleaning</MenuItem>
-                                <MenuItem value={'stock shelves'}>stock shelves</MenuItem>
-                                <MenuItem value={'take out garbage'}>take out garbage</MenuItem>
+                                {taskNames.map((item) => {
+                                return (
+                                    <MenuItem value={item.task_name}>{item.task_name}</MenuItem>
+                                )
+                                    })}
                             </Select>
                         </FormControl>
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={handleCloseDelete}>Cancel</Button>
-                        <Button onClick={handleCloseDelete}>Delete</Button>
+                        <Button onClick={() => {
+                            callApideleteTask();
+                            handleCloseDelete();
+                            alert('Your Task has been Deleted!');
+                        }}>Delete
+                        </Button>
                     </DialogActions>
                 </Dialog>
             </div>
