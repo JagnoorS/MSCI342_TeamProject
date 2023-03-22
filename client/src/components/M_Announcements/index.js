@@ -49,40 +49,25 @@ export default function SignUp() {
 
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
-  const [address, setAddress] = React.useState("");
-  const [city, setCity] = React.useState("");
-  const [province, setProvince] = React.useState("");
-  const [zip, setZip] = React.useState("");
-  const [phone, setPhone] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [dob, setDob] = React.useState("");
-  const [location, setLocation] = React.useState("");
+  const [message, setMessage] = React.useState("");
+  const [type, setType] = React.useState("");
+  
 
-  const application = {
+  const announcement = {
     firstName: firstName,
     lastName: lastName,
-    address: address,
-    city: city,
-    province: province,
-    zip: zip,
-    phone: phone,
-    email: email,
-    dob: dob,
-    location: location
+    message: message,
+    type: type
+ 
   }
  
-const Type = [
-  { label: 'Urgent'},
-  { label: 'General' }
-];
-
-  const callApiaddApplication = async () => {
-    const url = serverURL + "/api/addApplication";
+  const callApiaddAnnouncement = async () => {
+    const url = serverURL + "/api/addAnnouncement";
     console.log(url);
 
     const response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify(application),
+      body: JSON.stringify(announcement),
       headers:{
         'Content-Type':"application/json"
       }
@@ -111,9 +96,6 @@ const Type = [
             Post Announcement
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-                <Typography component="h2" variant="h5" align = 'left'>
-                    
-                </Typography>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField 
@@ -124,8 +106,8 @@ const Type = [
                   id="firstName"
                   label="First Name"
                   autoFocus
-                //   value={firstName}
-                //   onChange={(e) => setFirstName(e.target.value)}
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                 />
               </Grid>
 
@@ -137,10 +119,10 @@ const Type = [
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
-                //   value={lastName}
-                //   onChange={(e) => setLastName(e.target.value)}
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                 />
-                </Grid>
+              </Grid>
 
                 <Grid item xs={12} sm={100}>
                 <TextField
@@ -152,50 +134,43 @@ const Type = [
                     multiline
                     maxRows={20}
                     variant="outlined"
-                    // value={issue}
-                    // onChange={(e) => setIssue(e.target.value)}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                 />
                 <Grid item xs={12} sm ={100}>
                 <FormControl fullWidth>
                 <InputLabel>Type</InputLabel>
                 <Select
-
                     sx = {{mt : 1   }} 
-                    // value={Type}
                     label="Type"
-                    // onChange={handleChange}
+                    value={type}
+                    onChange={(e) => setType(e.target.value)}
+                    //value={Type}
+                    //onChange={(e) => setType(e.target.value)}
                 >
                     <MenuItem value={'General'}>General</MenuItem>
                     <MenuItem value={'Urgent'}>Urgent</MenuItem>
+                    {/* value={type}
+                    onChange={(e) => setType(e.target.value)} */}
+
                 </Select>
                 </FormControl>
                   </Grid>
                 </Grid>
-
-
-
-    
-             
             </Grid>
-
             <Button
-              
               type="Submit"
               fullWidth
               variant="contained"
               sx={{ mt: 2, mb: 2 }}
               onClick={() => {
-                callApiaddApplication();
-                alert('Your announcement has been submitted')
+                callApiaddAnnouncement();
+                alert('Your Announcement has been Submitted!')
               }}
             >Post Announcement
             </Button>
-
-
-
           </Box>
         </Box>
-
         <Copyright sx={{ mt: 1 }} />
       </Container>
     </ThemeProvider>
