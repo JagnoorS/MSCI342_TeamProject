@@ -18,6 +18,8 @@ import ManagerChecklist from "../ManagerChecklist";
 import M_Announcements from "../M_Announcements"
 import CustomerFeedback from '../CustomerFeedback'
 import EmployeeChecklist from '../EmployeeChecklist'
+import E_TimeOff from '../E_TimeOff'
+
 
 
 
@@ -45,6 +47,7 @@ export default function PrivateRoute({
       <Route path="/M_Announcements" exact component={M_Announcements} />
       <Route path="/CustomerFeedback" exact component={CustomerFeedback} />
       <Route path="/EmployeeChecklist" exact component={EmployeeChecklist} />
+      <Route path="/TimeOff" exact component={E_TimeOff} />
       </Switch>
     </Router>
   );
