@@ -188,6 +188,72 @@ app.post('/api/gettaskName', (req, res) => {
 	connection.end();
 });
 
+//-----------------------------EDIT----------------------------------------------------------
+app.get('/api/getTask', (req, res) => {
+
+	let connection = mysql.createConnection(config);
+
+	let sql = `SELECT * FROM Task`;
+	console.log(sql);
+
+	connection.query(sql, (error, results, fields) => {
+		if (error) {
+			return console.error(error.message);
+		}
+
+		console.log(results);
+		let string = JSON.stringify(results);
+		//let obj = JSON.parse(string);
+		res.send({ express: string });
+	});
+	connection.end();
+});
+
+//-----------------------------EDIT----------------------------------------------------------
+
+app.post('/api/editTask', (req, res) => {
+
+	let connection = mysql.createConnection(config);
+
+	let sql = `UPDATE Task SET task_name = ?, task_description = ?, task_assigned_to = ? WHERE task_name = ?`;
+	console.log(sql);
+	let data = [req.body.taskNameEdit, req.body.taskDescriptionEdit, req.body.taskAssignedEdit, req.body.taskNameEdit];
+	console.log(data);
+
+	connection.query(sql, data, (error, results, fields) => {
+		if (error) {
+			return console.error(error.message);
+		}
+
+		console.log(results);
+		let string = JSON.stringify(results);
+		//let obj = JSON.parse(string);
+		res.send({ express: string });
+	});
+	connection.end();
+});
+
+app.post('/api/deleteTask', (req, res) => {
+
+	let connection = mysql.createConnection(config);
+
+	let sql = `DELETE FROM Task WHERE task_name = ?`;
+	console.log(sql);
+	let data = [req.body.taskNameDelete];
+	console.log(data);
+
+	connection.query(sql, data, (error, results, fields) => {
+		if (error) {
+			return console.error(error.message);
+		}
+
+		console.log(results);
+		let string = JSON.stringify(results);
+		//let obj = JSON.parse(string);
+		res.send({ express: string });
+	});
+	connection.end();
+});
 
 
 

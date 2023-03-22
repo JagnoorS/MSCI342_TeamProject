@@ -7,6 +7,8 @@
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "dependencies": {
+    "@mui/joy": "^5.0.0-alpha.72",
+    "@mui/x-data-grid": "^6.0.2",
     "dotenv": "^8.1.0",
     "express": "^4.16.4",
     "mysql": "^2.17.1",
