@@ -189,7 +189,7 @@ app.post('/api/gettaskName', (req, res) => {
 });
 
 //-----------------------------EDIT----------------------------------------------------------
-app.get('/api/getTask', (req, res) => {
+app.post('/api/gettasks', (req, res) => {
 
 	let connection = mysql.createConnection(config);
 
@@ -265,6 +265,26 @@ app.post('/api/addAnnouncement', (req, res) => {
 	console.log(data);
 
 	connection.query(sql, data, (error, results, fields) => {
+		if (error) {
+			return console.error(error.message);
+		}
+
+		console.log(results);
+		let string = JSON.stringify(results);
+		//let obj = JSON.parse(string);
+		res.send({ express: string });
+	});
+	connection.end();
+});
+
+app.post('/api/getemployeeName', (req, res) => {
+
+	let connection = mysql.createConnection(config);
+
+	let sql = `SELECT DISTINCT first_name, last_name FROM employee_hours`;
+	console.log(sql);
+
+	connection.query(sql, (error, results, fields) => {
 		if (error) {
 			return console.error(error.message);
 		}
