@@ -15,6 +15,8 @@ import Checkbox from '@mui/joy/Checkbox';
 import FormControl from '@mui/joy/FormControl';
 import FormHelperText from '@mui/joy/FormHelperText';
 import { DataGrid } from '@mui/x-data-grid';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
 
@@ -32,39 +34,39 @@ function Copyright(props) {
         </Typography>
     );
 }
+export default function DataTable() {
+const [task, changetask] = useState()
 
-//const [task, changetask] = React.useState([])
-//const [taskDescription, changetaskDescription] = React.useState()
-//const [taskAssigned, changetaskAssigned] = React.useState()
 
-// const getTask = () => {
-//     callApigetTask()
-//       .then(res => {
-//         console.log("callApigetTask returned: ", res)
-//         var parsed = JSON.parse(res.express);
-//         console.log("callApigetTask parsed: ", parsed);
-//         changetask(parsed);
-//       })
-//   }
+const gettasks = () => {
+  callApigettasks()
+    .then(res => {
+      console.log("callApigettasks returned: ", res)
+      var parsed = JSON.parse(res.express);
+      console.log("callApigettasks parsed: ", parsed);
+      changetask(parsed);
+    })
+}
 
-//   React.useEffect(() => {
-//     getTask();
-//   }, []);
+React.useEffect(() => {
+  gettasks();
+}, []);
 
-//   const callApigetTask = async () => {
-//     const url = serverURL + "/api/getTask";
-//     console.log(url);
+const callApigettasks = async () => {
+  const url = serverURL + "/api/gettasks";
+  console.log(url);
 
-//     const response = await fetch(url, {
-//       method: "POST",
-//       headers:{
-//         'Content-Type':"application/json"
-//       }
-//     });
-//     const body = await response.json();
-//     if (response.status !== 200) throw Error(body.message);
-//     return body;
-//   }
+  const response = await fetch(url, {
+    method: "POST",
+    headers:{
+      'Content-Type':"application/json"
+    }
+  });
+  const body = await response.json();
+  if (response.status !== 200) throw Error(body.message);
+  return body;
+}
+
 
 const columns = [
     { field: 'TaskName', headerName: 'Task Name', width: 190 },
@@ -72,29 +74,25 @@ const columns = [
     { field: 'AssignedTo', headerName: 'Assigned To', width: 160 },
   ];
   
-   const rows = [
-//     { TaskName: 
-//         task.map((item1)=>{
-//             return(
-//                 item1.task_name
-//             )
-//         }),
-//       TaskDescription: 
-//         task.map((item2)=>{
-//             return(
-//                 item2.task_description
-//             )
-//         }),
-//       AssignedTo:
-//         task.map((item3)=>{
-//             return(
-//                 item3.task_assigned_to
-//             )
-//         })
-//         }
-   ];
+
+
+const[rows, setRows] = useState([])
+   useEffect(() => {
+    if (!task){return}
+    task.map((item)=>{
+      
+      const newRow = {
+        id: item.id,
+        TaskName: item.task_name,
+        TaskDescription: item.task_description,
+        AssignedTo: item.task_assigned_to
+    }
+    setRows(rows => [...rows, newRow])
+  })
+    
+    },[task])
   
-  export default function DataTable() {
+  
     return (
       <div style={{ height: 500, width: '100%' }}>
         <DataGrid
