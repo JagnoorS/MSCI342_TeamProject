@@ -5,11 +5,16 @@ import SignUpPage from '../SignUp';
 import LandingPage from '../Landing';
 import HomePage from '../Home';
 import history from './history';
+import { useAuth } from '../Firebase/context';
 
+
+const serverURL = ""; //enable for dev mode
 export default function PrivateRoute({
   authenticated,
   ...rest
 }) {
+
+ 
   return (
 
     <Router history={history}>
