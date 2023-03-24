@@ -298,6 +298,49 @@ app.post('/api/getemployeeName', (req, res) => {
 });
 
 
+app.post('/api/addEmployee', (req, res) => {
+
+	let connection = mysql.createConnection(config);
+
+	let sql = `INSERT INTO employees(first_name, last_name, email, role) VALUES (?, ?, ?, ?)`;
+	console.log(sql);
+	let data = [req.body.firstName, req.body.lastName, req.body.email, req.body.role];
+	console.log(data);
+
+	connection.query(sql, data, (error, results, fields) => {
+		if (error) {
+			return console.error(error.message);
+		}
+
+		console.log(results);
+		let string = JSON.stringify(results);
+		//let obj = JSON.parse(string);
+		res.send({ express: string });
+	});
+	connection.end();
+});
+
+app.post('/api/getRole', (req, res) => {
+
+	let connection = mysql.createConnection(config);
+
+	let sql = `SELECT role FROM employees WHERE email = ?`;
+	let data = [req.body.userEmail];
+	console.log(sql);
+
+	connection.query(sql, data, (error, results, fields) => {
+		if (error) {
+			return console.error(error.message);
+		}
+
+		console.log(results);
+		let string = JSON.stringify(results);
+		//let obj = JSON.parse(string);
+		res.send({ express: string });
+	});
+	connection.end();
+});
+
 
 
 
