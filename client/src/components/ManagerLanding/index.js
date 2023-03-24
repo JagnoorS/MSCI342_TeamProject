@@ -22,6 +22,7 @@ const ManagerLanding = () =>  {
     return (
         <div style={style}>
         <div align='center'>
+
             <Typography variant="h2" component="div" gutterBottom>
                 Welcome to FuelFlex's Manager Portal
             </Typography>
@@ -30,6 +31,7 @@ const ManagerLanding = () =>  {
             <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/M_EmployeeLoggedHours')}>Logged Hours</Button>
             <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/M_Announcements')}>Submit Announcements</Button>
             <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/ManagerChecklist')}>Checklist</Button>
+            <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/GraphLanding')}>Data Visualization</Button>
             </div>
 
 
