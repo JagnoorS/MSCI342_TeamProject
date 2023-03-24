@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import history from "../Navigation/history"
 
 
-const ManagerLanding = () =>  {
+const GraphLanding = () =>  {   
 
 
     const style={
@@ -22,16 +22,16 @@ const ManagerLanding = () =>  {
     return (
         <div style={style}>
         <div align='center'>
-
-            <Typography variant="h2" component="div" gutterBottom>
-                Welcome to FuelFlex's Manager Portal
+            <Typography variant="h2" component="div" >
+                Welcome to your Data Visualization Portal
+            </Typography>
+            <Typography variant="h4" component="div" >
+               Select which Sales data you wish to visualize
             </Typography>
             </div>
             <div align='center'>
-            <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/M_EmployeeLoggedHours')}>Log Hours</Button>
-            <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/M_Announcements')}>Submit Announcements</Button>
-            <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/ManagerChecklist')}>Checklist</Button>
-            <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/GraphLanding')}>Data Visualization</Button>
+            <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/GasDataLanding')}>Gas Sales Visualizations</Button>
+            <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/StoresSAlesData')}>Store Sales Visualizations</Button>
             </div>
 
 
@@ -42,4 +42,4 @@ const ManagerLanding = () =>  {
     );
 }
 
-export default ManagerLanding;
+export default GraphLanding;
