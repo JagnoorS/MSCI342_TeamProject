@@ -22,7 +22,6 @@ import E_TimeOff from '../E_TimeOff'
 import SignUp from "../SignUp";
 import signIn from "../SignIn";
 import { AuthProvider, useAuth } from '../Firebase/context';
-import DataVis from '../DataVis'
 import L_RegularSales from '../L_RegularSales'
 import GraphLanding from "../GraphLanding";
 import GasDataLanding from "../GasDataLanding"
@@ -37,7 +36,7 @@ import S_DailyLotterySales from '../S_DailyLotterySales'
 import S_DailyNetSales from '../S_DailyNetSales'
 import S_DailyStoreSales from '../S_DailyStoreSales'  
 import S_NetCreditCard from '../S_NetCreditCard'
-import S_NetStoreSales from '../S_NetStoreSales' 
+import S_NetStoreSales from '../S_NetStoreSales';
 
 const serverURL = ""
 
@@ -109,7 +108,6 @@ export default function PrivateRoute({
       <Route path="/TimeOff" exact component={E_TimeOff} />
       <Route path="/SignUp" exact component={SignUp} />
       <Route path="/SignIn" exact component={signIn} />
-      <Route path="/DV" exact component={DataVis} />
       <Route path="/L_RegularSales" exact component={L_RegularSales} />
       <Route path="/GraphLanding" exact component={GraphLanding} />
       <Route path="/StoresSalesData" exact component={StoresSalesData} />
