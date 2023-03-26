@@ -12,8 +12,8 @@ const ManagerLanding = () =>  {
 
 
     const style={
-        backgroundImage: "url(https://scontent-ord5-1.xx.fbcdn.net/v/t1.15752-9/334885375_708742761046620_7014199253196400788_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=ae9488&_nc_ohc=xPVcKi1ZpzgAX8pDfYj&_nc_ht=scontent-ord5-1.xx&oh=03_AdTUu-lESeypKrT6pr6-VF_NvBktQiH8hAbBAg6gjHY8QQ&oe=6429E2A2)",
-        height: '100vh',
+        backgroundImage: "url(https://wallpaper.dog/large/17056599.jpg)",
+        height: '93vh',
         marginTop:'0px',
         fontsize:'50px',
         backgroundSize: 'cover',
