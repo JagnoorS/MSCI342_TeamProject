@@ -84,6 +84,7 @@ const NavigationBar = () => {
           {role === "Employee" ? <Button colors = "inherit" onClick= {()=> history.push('/EmployeeLanding')}>Employees</Button> : <div></div> }
           <Button colors = "inherit" onClick= {()=> history.push('/CustomerLanding')}>Customers</Button> 
           <Button colors = "inherit" onClick= {()=> history.push('/SignIn')}>Sign in</Button>
+          <Button colors = "inherit" onClick= {()=> history.push('/ToggleDarkMode')}>Toggle Dark Mode</Button>
           {/* <Button colors = "inherit" onClick= {()=> (logout)}>Sign out</Button> */}
         
 
