@@ -22,6 +22,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import { makeStyles } from '@material-ui/core/styles';
+import { DataGrid } from '@mui/x-data-grid';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
 
@@ -186,8 +189,75 @@ export default function SignUp() {
         taskNameDelete: taskNameDelete
     }
 
+    const [task, changetask] = useState()
+
+
+const gettasks = () => {
+  callApigettasks()
+    .then(res => {
+      console.log("callApigettasks returned: ", res)
+      var parsed = JSON.parse(res.express);
+      console.log("callApigettasks parsed: ", parsed);
+      changetask(parsed);
+    })
+}
+
+React.useEffect(() => {
+  gettasks();
+}, []);
+
+const callApigettasks = async () => {
+  const url = serverURL + "/api/gettasks";
+  console.log(url);
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers:{
+      'Content-Type':"application/json"
+    }
+  });
+  const body = await response.json();
+  if (response.status !== 200) throw Error(body.message);
+  return body;
+}
+
+
+const columns = [
+    { field: 'TaskName', headerName: 'Task Name', width: 190 },
+    { field: 'TaskDescription', headerName: 'Description', width: 300 },
+    { field: 'AssignedTo', headerName: 'Assigned To', width: 160 },
+  ];
+  
+
+
+const[rows, setRows] = useState([])
+   useEffect(() => {
+    if (!task){return}
+    task.map((item)=>{
+      
+      const newRow = {
+        id: item.id,
+        TaskName: item.task_name,
+        TaskDescription: item.task_description,
+        AssignedTo: item.task_assigned_to
+    }
+    setRows(rows => [...rows, newRow])
+  })
+    
+    },[task])
+  
+
     return (
         <div align='center'>
+            <div style={{ height: 500, width: '100%' }}>
+                <DataGrid
+                rows={rows}
+                columns={columns}
+                pageSize={5}
+                rowsPerPageOptions={[5]}
+                checkboxSelection
+                />
+            </div>
             <div align='center'>
                 <Button variant="contained" style={{ colour: '#000000', background: '#000000', marginRight: '30px', marginTop: '100px' }} size='large' onClick={handleClickOpenTask}>
                     Create Task
@@ -240,6 +310,7 @@ export default function SignUp() {
                             callApiaddTask();
                             handleCloseTask();
                             alert('Your Task has been created!');
+                            window.location.reload()
                         }}>Create
                         </Button>
                     </DialogActions>
@@ -304,6 +375,7 @@ export default function SignUp() {
                             callApieditTask();
                             handleCloseEdit();
                             alert('Your Task has been edited!');
+                            window.location.reload()
                         }}>Edit
                         </Button>
                     </DialogActions>
@@ -341,6 +413,7 @@ export default function SignUp() {
                             callApideleteTask();
                             handleCloseDelete();
                             alert('Your Task has been Deleted!');
+                            window.location.reload()
                         }}>Delete
                         </Button>
                     </DialogActions>
