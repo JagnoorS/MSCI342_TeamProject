@@ -16,6 +16,12 @@ export function AuthProvider({ children }) {
   function Login(email, password) {
     return auth.signInWithEmailAndPassword(email, password);
   }
+  function logout() {
+    return auth.signOut();
+  }
+  function PasswordForeget(email) {
+    return auth.sendPasswordResetEmail(email);
+  }
   
   useEffect(() => {
     const U_S = auth.onAuthStateChanged(user => {
@@ -24,14 +30,12 @@ export function AuthProvider({ children }) {
       return U_S;
   }, []);
 
-  
-
-
-
   const value = {
     currentUser,
     Create,
-    Login
+    Login,
+    logout,
+    PasswordForeget
   }
 
 

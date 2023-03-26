@@ -26,6 +26,7 @@
     "@mui/x-date-pickers-pro": "^6.0.3",
     "@testing-library/jest-dom": "^5.16.5",
     "angular": "^1.8.3",
+    "blockswords-lightweight-charts": "^3.8.0-blockswords-6",
     "canvasjs": "^1.8.3",
     "canvasjs-react-charts": "^1.0.5",
     "chart.js": "^4.2.1",

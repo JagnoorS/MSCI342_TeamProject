@@ -26,6 +26,9 @@ import Stack from '@mui/material/Stack';
 import { LocalizationProvider } from '@mui/x-date-pickers-pro';
 import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
 import { DesktopDateRangePicker } from '@mui/x-date-pickers-pro/DesktopDateRangePicker';
+import { DataGrid } from '@mui/x-data-grid';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
 
@@ -97,10 +100,77 @@ export default function SignUp() {
       }
 
 
+      const [hour, changehour] = useState()
+      const gethours = () => {
+        callApigethours()
+          .then(res => {
+            console.log("callApigethours returned: ", res)
+            var parsed = JSON.parse(res.express);
+            console.log("callApigethours parsed: ", parsed);
+            changehour(parsed);
+          })
+      }
+      
+      React.useEffect(() => {
+        gethours();
+      }, []);
+      
+      const callApigethours = async () => {
+        const url = serverURL + "/api/gethours";
+        console.log(url);
+      
+        const response = await fetch(url, {
+          method: "POST",
+          headers:{
+            'Content-Type':"application/json"
+          }
+        });
+        const body = await response.json();
+        if (response.status !== 200) throw Error(body.message);
+        return body;
+      }
+
+      const columns = [
+        { field: 'Name', headerName: 'Employee Name', width: 190 },
+        { field: 'DateWorked', headerName: 'Date Worked', width: 190 },
+        { field: 'StartTime', headerName: 'Start Time', width: 190 },
+        { field: 'EndTime', headerName: 'End Time', width: 190 },
+        { field: 'HoursWorked', headerName: 'Hours Worked', width: 190 },
+      ];
+      
+    
+    
+    const[rows, setRows] = useState([])
+       useEffect(() => {
+        if (!hour){return}
+        hour.map((item)=>{
+          
+          const newRow = {
+            id: item.id,
+            Name: item.first_name + " " + item.last_name,
+            DateWorked: item.reporting_date,
+            StartTime: item.start_time,
+            EndTime: item.end_time,
+            HoursWorked: item.difference
+        }
+        setRows(rows => [...rows, newRow])
+      })
+        
+        },[hour])
+
+
 
 
     return (
         <div align='center'>
+            <div style={{ height: 500, width: '100%' }}>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+        />
+      </div>
             <div align='center'>
                 <Button variant="contained" style={{ colour: '#000000', background: '#000000', marginRight: '30px', marginTop: '100px' }} size='large' onClick={handleClickOpenFilter}>
                 Filter

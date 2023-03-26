@@ -37,6 +37,8 @@ import S_DailyNetSales from '../S_DailyNetSales'
 import S_DailyStoreSales from '../S_DailyStoreSales'  
 import S_NetCreditCard from '../S_NetCreditCard'
 import S_NetStoreSales from '../S_NetStoreSales';
+import PasswordForget from "../PasswordForget";
+import E_Announcements from "../E_Announcements";
 
 const serverURL = ""
 
@@ -123,6 +125,8 @@ export default function PrivateRoute({
       <Route path="/S_DailyStoreSales" exact component={S_DailyStoreSales} />
       <Route path="/S_NetCreditCard" exact component={S_NetCreditCard}/>
       <Route path="/S_NetStoreSales" exact component={S_NetStoreSales} />
+      <Route path="/PasswordForget" exact component={PasswordForget} />
+      <Route path="/E_Announcements" exact component={E_Announcements} />
       </Switch>
     </Router>
     </AuthProvider>

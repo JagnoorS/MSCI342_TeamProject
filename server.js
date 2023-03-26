@@ -84,9 +84,9 @@ app.post('/api/addEmployeeHours', (req, res) => {
 
 	let connection = mysql.createConnection(config);
 
-	let sql = `INSERT INTO employee_hours(first_name, last_name, reporting_date, start_time, end_time, hours_worked) VALUES (?, ?, ?, ?, ?, ?)`;
+	let sql = `INSERT INTO employee_hours(first_name, last_name, reporting_date, start_time, end_time) VALUES (?, ?, ?, ?, ?)`;
 	console.log(sql);
-	let data = [req.body.firstName, req.body.lastName, req.body.reportingDate, req.body.startTime, req.body.endTime, req.body.timeWorked];
+	let data = [req.body.firstName, req.body.lastName, req.body.reportingDate, req.body.startTime, req.body.endTime];
 	console.log(data);
 
 	connection.query(sql, data, (error, results, fields) => {
@@ -329,6 +329,54 @@ app.post('/api/getRole', (req, res) => {
 	console.log(sql);
 
 	connection.query(sql, data, (error, results, fields) => {
+		if (error) {
+			return console.error(error.message);
+		}
+
+		console.log(results);
+		let string = JSON.stringify(results);
+		//let obj = JSON.parse(string);
+		res.send({ express: string });
+	});
+	connection.end();
+});
+
+app.post('/api/getannouncement', (req, res) => {
+
+	let connection = mysql.createConnection(config);
+
+	let sql = `SELECT * FROM Announcements`;
+	console.log(sql);
+
+	connection.query(sql, (error, results, fields) => {
+		if (error) {
+			return console.error(error.message);
+		}
+
+		console.log(results);
+		let string = JSON.stringify(results);
+		//let obj = JSON.parse(string);
+		res.send({ express: string });
+	});
+	connection.end();
+});
+
+app.post('/api/gethours', (req, res) => {
+
+	let connection = mysql.createConnection(config);
+
+	let sql = `SELECT
+	id,
+	first_name,
+	last_name,
+	reporting_date,
+	start_time,
+	end_time,
+	TIMEDIFF(end_time, start_time) AS difference
+  FROM employee_hours;`;
+	console.log(sql);
+
+	connection.query(sql, (error, results, fields) => {
 		if (error) {
 			return console.error(error.message);
 		}

@@ -37,6 +37,7 @@ const EmployeeLanding = () =>  {
                 <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/EmployeeAvailability')}>Log Availability</Button>
                 <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/EmployeeChecklist')}>To-Do List</Button>
                 <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/TimeOff')}>Time Off Request Form</Button>
+                <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/E_Announcements')}>Announcements</Button>
             </div>
         </div>
         
