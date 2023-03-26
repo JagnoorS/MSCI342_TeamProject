@@ -39,6 +39,7 @@ import S_NetCreditCard from '../S_NetCreditCard'
 import S_NetStoreSales from '../S_NetStoreSales';
 import PasswordForget from "../PasswordForget";
 import E_Announcements from "../E_Announcements";
+import ApplicantView from "../ApplicantView";
 
 const serverURL = ""
 
@@ -127,6 +128,7 @@ export default function PrivateRoute({
       <Route path="/S_NetStoreSales" exact component={S_NetStoreSales} />
       <Route path="/PasswordForget" exact component={PasswordForget} />
       <Route path="/E_Announcements" exact component={E_Announcements} />
+      <Route path="/ApplicantView" exact component={ApplicantView} />
       </Switch>
     </Router>
     </AuthProvider>

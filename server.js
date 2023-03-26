@@ -389,6 +389,26 @@ app.post('/api/gethours', (req, res) => {
 	connection.end();
 });
 
+app.post('/api/getapplicant', (req, res) => {
+
+	let connection = mysql.createConnection(config);
+
+	let sql = `SELECT * FROM application_Info`;
+	console.log(sql);
+
+	connection.query(sql, (error, results, fields) => {
+		if (error) {
+			return console.error(error.message);
+		}
+
+		console.log(results);
+		let string = JSON.stringify(results);
+		//let obj = JSON.parse(string);
+		res.send({ express: string });
+	});
+	connection.end();
+});
+
 
 
 

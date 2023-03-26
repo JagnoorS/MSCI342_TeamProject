@@ -13,6 +13,11 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Autocomplete from '@mui/material/Autocomplete';
+import { FormControl } from '@material-ui/core';
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+
 
 const serverURL = ""; //enable for dev mode
 function Copyright(props) {
@@ -64,11 +69,11 @@ export default function SignUp() {
     location: location
   }
  
-const Locations = [
-  { label: 'Timmins'},
-  { label: 'Barrie' },
-  { label: 'Waterloo'}
-];
+// const Locations = [
+//   { label: 'Timmins'},
+//   { label: 'Barrie' },
+//   { label: 'Waterloo'}
+// ];
 
   const callApiaddApplication = async () => {
     const url = serverURL + "/api/addApplication";
@@ -236,16 +241,21 @@ const Locations = [
                     />
                 </Grid>
                 <Grid item xs={12}>
-                <Autocomplete 
-                  disablePortal
-                  id="combo-box-demo"
-                  options={Locations}
-                  fullWidth
-                  renderInput={(params) => <TextField {...params} label="Locations" />}
-                  value={location}
-                  onChange={(e) => setLocation(e.target.value)}
-                  />
-                  </Grid>
+                <InputLabel id="demo-simple-select-label">Location</InputLabel>
+                <Select
+                    fullWidth
+                    variant = 'outlined'
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    label="Role"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                >
+                <MenuItem value={"Timmins"}>Timmins</MenuItem>
+                <MenuItem value={"Barrie"}>Barrie</MenuItem>
+                <MenuItem value={"Waterloo"}>Waterloo</MenuItem>
+                </Select>
+                </Grid>
              
 
 
