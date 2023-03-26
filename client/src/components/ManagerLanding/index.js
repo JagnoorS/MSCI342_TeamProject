@@ -34,6 +34,7 @@ const ManagerLanding = () =>  {
             <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/ManagerChecklist')}>Checklist</Button>
             <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/GraphLanding')}>Data Visualization</Button>
             <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/ApplicantView')}>Applicants</Button>
+            <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/CustomerFeedbackView')}>Customer Feedback</Button>
             </div>
 
 

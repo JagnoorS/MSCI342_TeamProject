@@ -409,6 +409,48 @@ app.post('/api/getapplicant', (req, res) => {
 	connection.end();
 });
 
+app.post('/api/addFeedback', (req, res) => {
+
+	let connection = mysql.createConnection(config);
+
+	let sql = `INSERT INTO customer_feedback(first_name, last_name, phone_number, email, location, message) VALUES (?, ?, ?, ?, ?, ?)`;
+	console.log(sql);
+	let data = [req.body.firstName, req.body.lastName, req.body.phoneNumber, req.body.email, req.body.location, req.body.comment];
+	console.log(data);
+
+	connection.query(sql, data, (error, results, fields) => {
+		if (error) {
+			return console.error(error.message);
+		}
+
+		console.log(results);
+		let string = JSON.stringify(results);
+		//let obj = JSON.parse(string);
+		res.send({ express: string });
+	});
+	connection.end();
+});
+
+app.post('/api/getFeedback', (req, res) => {
+
+	let connection = mysql.createConnection(config);
+
+	let sql = `SELECT * FROM customer_feedback`;
+	console.log(sql);
+
+	connection.query(sql, (error, results, fields) => {
+		if (error) {
+			return console.error(error.message);
+		}
+
+		console.log(results);
+		let string = JSON.stringify(results);
+		//let obj = JSON.parse(string);
+		res.send({ express: string });
+	});
+	connection.end();
+});
+
 
 
 

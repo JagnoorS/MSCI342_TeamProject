@@ -21,9 +21,6 @@ const Landing = () =>  {
     return (
         <div style={style} align='center'>
             <div align='center' marginTop='50px'>
-                <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/EmployeeLanding')}>Employees</Button>
-                <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/ManagerLanding')}>Managers</Button>
-                <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/CustomerLanding')}>Customers</Button>
             </div>
         </div>
         

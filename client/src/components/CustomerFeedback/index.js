@@ -47,21 +47,27 @@ export default function SignUp() {
 
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
-  const [issue, setIssue] = React.useState("");
+  const [phoneNumber, setPhoneNumber] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [location, setLocation] = React.useState("");
+  const [comment, setComment] = React.useState("");
 
-  const help = {
+  const Feedback = {
     firstName: firstName,
     lastName: lastName,
-    issue: issue
-  }
+    phoneNumber: phoneNumber,
+    email: email,
+    location: location,
+    comment: comment
+    }
 
-  const callApiaddIssue = async () => {
-    const url = serverURL + "/api/addIssue";
+  const callApiaddFeedback = async () => {
+    const url = serverURL + "/api/addFeedback";
     console.log(url);
 
     const response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify(help),
+      body: JSON.stringify(Feedback),
       headers:{
         'Content-Type':"application/json"
       }
@@ -122,15 +128,44 @@ export default function SignUp() {
                 />
                 </Grid>
 
+                <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="Phone Number"
+                  label="Phone Number"
+                  name="Phone Number"
+                  autoComplete="Phone Number"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+
+                />
+                </Grid>
+
+                <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="Email"
+                  label="Email"
+                  name="Email"
+                  autoComplete="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+
+                />
+                </Grid>
+
+
                 <Grid item xs={12} sm ={100}>
                 <FormControl fullWidth>
                 <InputLabel>Location</InputLabel>
                 <Select
-
                     sx = {{mt : 0 }} 
-                    // value={Type}
+                    required
                     label="Location"
-                    // onChange={handleChange}
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
                 >
                     <MenuItem value={'Waterloo'}>Waterloo</MenuItem>
                     <MenuItem value={'Barrie'}>Barrie</MenuItem>
@@ -149,8 +184,8 @@ export default function SignUp() {
                     multiline
                     maxRows={10}
                     variant="outlined"
-                    value={issue}
-                    onChange={(e) => setIssue(e.target.value)}
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
                 />
 
 
@@ -162,8 +197,9 @@ export default function SignUp() {
               variant="contained"
               sx={{ mt: 2, mb: 1 }}
               onClick={() => {
-                callApiaddIssue();
-                alert('Your issue has been received');
+                callApiaddFeedback();
+                alert('Your Feedback has been received');
+                window.location.reload()
               }}
             >Submit Feedback
             </Button>
