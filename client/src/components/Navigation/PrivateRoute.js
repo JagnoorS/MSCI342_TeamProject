@@ -41,6 +41,8 @@ import PasswordForget from "../PasswordForget";
 import E_Announcements from "../E_Announcements";
 import ApplicantView from "../ApplicantView";
 import CustomerFeedbackView from "../CustomerFeedbackView";
+import ManagerViewEhelp from "../ManagerViewEhelp";
+import EmployeeTimeOffView from "../EmployeeTimeOffView";
 
 const serverURL = ""
 
@@ -131,6 +133,8 @@ export default function PrivateRoute({
       <Route path="/E_Announcements" exact component={E_Announcements} />
       <Route path="/ApplicantView" exact component={ApplicantView} />
       <Route path="/CustomerFeedbackView" exact component={CustomerFeedbackView} />
+      <Route path="/ManagerViewEhelp" exact component={ManagerViewEhelp} />
+      <Route path="/EmployeeTimeOffView" exact component={EmployeeTimeOffView} />
       </Switch>
     </Router>
     </AuthProvider>

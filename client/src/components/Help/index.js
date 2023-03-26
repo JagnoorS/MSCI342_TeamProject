@@ -144,7 +144,8 @@ export default function SignUp() {
                 sx={{ mt: 1, mb: 0}}
                 onClick={() => {
                   callApiaddIssue();
-                  alert('Your issue has been received');
+                  alert('Your issue has been received!');
+                  window.location.reload();
                 }}
                 >Submit
             </Button>
