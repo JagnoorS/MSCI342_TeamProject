@@ -21,7 +21,6 @@ const StoreSalesData = () =>  {
 
     return (
         <div style={style}>
-            <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/GraphLanding')}>Back</Button>
         <div align='center'>
             <Typography variant="h2" component="div" >
                 Select which data to visualize 

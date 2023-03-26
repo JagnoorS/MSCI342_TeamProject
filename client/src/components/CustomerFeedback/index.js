@@ -85,12 +85,12 @@ export default function SignUp() {
           }}
         >
 
-          <Typography component="h1" variant="h3">
+          <Typography component="h1" variant="h4" align = 'center'>
             Customer Feedback
           </Typography>
 
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Typography component="h3" variant="h7">
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 2 }}>
+            <Typography component="h3" variant="h7" align  = 'center'>
             Input your information and your feedback
             </Typography>
             <Grid container spacing={2}>

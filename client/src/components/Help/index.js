@@ -87,7 +87,7 @@ export default function SignUp() {
           </Typography>
 
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Typography component="h3" variant="h7">
+            <Typography component="h3" variant="h7" align = 'center'>
             Input your information and your error
             </Typography>
             <Grid container spacing={2}>
@@ -133,27 +133,32 @@ export default function SignUp() {
                     onChange={(e) => setIssue(e.target.value)}
                 />
                 </Grid>
+                <Grid
+                item xs={12} sm={100}
+              >
+
+                  <Button
+                type="Submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 1, mb: 0}}
+                onClick={() => {
+                  callApiaddIssue();
+                  alert('Your issue has been received');
+                }}
+                >Submit
+            </Button>
+              </Grid>
 
               
 
 
-            <Button
-              type="Submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              onClick={() => {
-                callApiaddIssue();
-                alert('Your issue has been received');
-              }}
-            >Submit
-            </Button>
             <Grid container justifyContent="flex-end">
             </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
+        <Copyright sx={{ mt: 2 }} />
       </Container>
     </ThemeProvider>
   );

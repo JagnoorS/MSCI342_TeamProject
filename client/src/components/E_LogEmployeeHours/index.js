@@ -84,13 +84,17 @@ export default function SignUp() {
             alignItems: 'center',
           }}
         >
-          <Typography component="h1" variant="h7">
-            Hour Tracking Form
+
+          <Typography  component="h1" variant="h7">
+            Time Off Request Form
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-          <Grid Container spacing={2}>
-          <Grid >
-                <TextField
+                <Typography component="h2" variant="h5" align = 'left'>
+                    
+                </Typography>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+              <TextField
                   autoComplete="given-name"
                   name="firstName"
                   required
@@ -103,8 +107,8 @@ export default function SignUp() {
                 />
               </Grid>
 
-              <Grid>
-                <TextField
+              <Grid item xs={12} sm={6}>
+              <TextField
                   required
                   fullWidth
                   id="lastName"
@@ -114,13 +118,14 @@ export default function SignUp() {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                 />
-                </Grid>
-               <Grid>
-                <TextField
+              </Grid>
+              <Grid item xs={12} sm={100}>
+              <TextField
                     id="date"
                     label="Date Worked"
                     type="date"
                     defaultValue=""
+                    fullWidth
                     InputLabelProps={{
                     shrink: true,
                     }}
@@ -128,12 +133,14 @@ export default function SignUp() {
                     onChange={(e) => setReportingDate(e.target.value)}
                     />
                 </Grid>
-                <Grid>
-                <TextField
+
+              <Grid item xs={12} sm={100}>
+              <TextField
                     id = "time"
                     label = "Start Time"
                     type = "time"
                     defaultValue = "07:30"
+                    fullWidth
                     InputLabelProps = {{
                     shrink: true,
                     }}
@@ -143,12 +150,14 @@ export default function SignUp() {
                     value={startTime}
                     onChange={(e) => setStartTime(e.target.value)}
                     />
-                </Grid>
-                <Grid>
-                <TextField
+              </Grid>
+
+              <Grid item xs={12} sm={100}>
+              <TextField
                     id = "time"
                     label = "End Time"
                     type = "time"
+                    fullWidth
                     defaultValue = "07:30"
                     InputLabelProps = {{
                     shrink: true,
@@ -159,7 +168,11 @@ export default function SignUp() {
                     value={endTime}
                     onChange={(e) => setEndTime(e.target.value)}
                     />
-                </Grid>
+              </Grid>
+             
+            </Grid>
+
+
             <Button
               type="Submit"
               fullWidth
@@ -171,14 +184,11 @@ export default function SignUp() {
               }}
             >Submit
             </Button>
-          </Grid>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-              </Grid>
-            </Grid>
-            </Box>
+
           </Box>
-        <Copyright sx={{ mt: 32 }} />
+        </Box>
+
+        <Copyright sx={{ mt: 0 }} />
       </Container>
     </ThemeProvider>
   );
