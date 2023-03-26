@@ -7,5 +7,6 @@ import Application from '../Application'
 //Unit test: Jagnoor Sangha
 
 test('renders application page', ()=> {
+    __esModule: true,
     render(<Application/>);
 });
