@@ -77,7 +77,7 @@ export default function SignUp() {
     if (response.status !== 200) throw Error(body.message);
     return body;
   }
-
+//testing
 
   return (
     <ThemeProvider theme={theme}>
