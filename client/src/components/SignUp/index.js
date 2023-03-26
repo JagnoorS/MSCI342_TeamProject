@@ -14,7 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useAuth } from '../Firebase/context';
 import { AuthProvider } from '../Firebase/context';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import { FormControl } from '@material-ui/core';
@@ -54,6 +54,7 @@ export default function SignUp() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const { Create } = useAuth();
+  const history = useHistory();
 
   const employee = {
     firstName: firstName,
@@ -167,8 +168,10 @@ export default function SignUp() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
               onClick={() => {
+                alert("Account Created");
                 callApiaddEmployee();
                 Create(email, password);
+                history.push("/")
               }
                 }
             >

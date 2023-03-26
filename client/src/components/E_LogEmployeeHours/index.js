@@ -52,8 +52,7 @@ export default function SignUp() {
     lastName: lastName,
     reportingDate: reportingDate,
     startTime: startTime,
-    endTime: endTime,
-    timeWorked: (endTime - startTime)
+    endTime: endTime
   }
 
 

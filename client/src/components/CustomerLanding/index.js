@@ -27,6 +27,7 @@ const CustomerLanding = () =>  {
             </div>
             <div align='center'>
             <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/Application')}>Apply Here</Button>
+            <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/CustomerFeedBack')}>FeedBack</Button>
             </div>
 
             </div>
