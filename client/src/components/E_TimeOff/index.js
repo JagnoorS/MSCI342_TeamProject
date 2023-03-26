@@ -49,40 +49,24 @@ export default function SignUp() {
 
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
-  const [address, setAddress] = React.useState("");
-  const [city, setCity] = React.useState("");
-  const [province, setProvince] = React.useState("");
-  const [zip, setZip] = React.useState("");
-  const [phone, setPhone] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [dob, setDob] = React.useState("");
-  const [location, setLocation] = React.useState("");
+  const [startDate, setStartDate] = React.useState("");
+  const [endDate, setEndDate] = React.useState("");
 
-  const application = {
+  const timeOff = {
     firstName: firstName,
     lastName: lastName,
-    address: address,
-    city: city,
-    province: province,
-    zip: zip,
-    phone: phone,
-    email: email,
-    dob: dob,
-    location: location
+    startDate: startDate,
+    endDate: endDate,
   }
  
-const Type = [
-  { label: 'Urgent'},
-  { label: 'General' }
-];
 
-  const callApiaddApplication = async () => {
-    const url = serverURL + "/api/addApplication";
+  const callApiaddTimeOff = async () => {
+    const url = serverURL + "/api/addTimeOff";
     console.log(url);
 
     const response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify(application),
+      body: JSON.stringify(timeOff),
       headers:{
         'Content-Type':"application/json"
       }
@@ -124,8 +108,8 @@ const Type = [
                   id="firstName"
                   label="First Name"
                   autoFocus
-                //   value={firstName}
-                //   onChange={(e) => setFirstName(e.target.value)}
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                 />
               </Grid>
 
@@ -137,8 +121,8 @@ const Type = [
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
-                //   value={lastName}
-                //   onChange={(e) => setLastName(e.target.value)}
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                 />
               </Grid>
 
@@ -152,8 +136,8 @@ const Type = [
                     InputLabelProps={{
                     shrink: true,
                     }}
-                    // value={reportingDate}
-                    // onChange={(e) => setReportingDate(e.target.value)}
+                     value={startDate}
+                     onChange={(e) => setStartDate(e.target.value)}
                     />
               </Grid>
 
@@ -167,20 +151,10 @@ const Type = [
                     InputLabelProps={{
                     shrink: true,
                     }}
-                    // value={reportingDate}
-                    // onChange={(e) => setReportingDate(e.target.value)}
+                    value={endDate}
+                    onChange={(e) => setEndDate(e.target.value)}
                     />
               </Grid>
-
-
-
-              
-
-
-
-
-    
-             
             </Grid>
 
             <Button
@@ -190,8 +164,9 @@ const Type = [
               variant="contained"
               sx={{ mt: 2, mb: 2 }}
               onClick={() => {
-                callApiaddApplication();
-                alert('Your announcement has been submitted')
+                callApiaddTimeOff();
+                alert('Your time off request has been submitted!')
+                window.location.reload();
               }}
             >Submit form
             </Button>
