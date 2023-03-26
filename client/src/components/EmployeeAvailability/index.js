@@ -210,17 +210,23 @@ export default function SignUp() {
                     onChange={(e) => setSunday(e.target.value)}
                 />
                 </Grid>
-            <Button
-              type="Submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              onClick={() => {
-                callApiaddAvailableHours();
-                alert('Your Availability has been logged!');
-              }}
-            >Submit
+                <Grid
+                item xs={12} sm={100}
+              >
+              <Button
+                type="Submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 0, mb: 0 }}
+                onClick={() => {
+                  callApiaddAvailableHours();
+                  alert('Your Availability has been logged!');
+                }}
+              >Submit
             </Button>
+              </Grid>
+                
+
             <Grid container justifyContent="flex-end">
             </Grid>
             </Grid>

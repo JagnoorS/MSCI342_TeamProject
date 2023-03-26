@@ -209,14 +209,19 @@ export default function SignUp() {
                   onChange={(e) => setPremiumSellPrice(e.target.value)}
                 />
               </Grid>
-              <Button
-                type="Submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 2, mb: 2 }}
-                onClick={callApiaddSalesEntry}
-              >Submit
-              </Button>
+              <Grid
+                item xs={12} sm={100}
+              >
+                <Button
+                  type="Submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 1, mb: 2 }}
+                  onClick={callApiaddSalesEntry}
+                >Submit
+                </Button>
+              </Grid>
+
 
               <Grid container justifyContent="flex-end">
                 <Grid item>

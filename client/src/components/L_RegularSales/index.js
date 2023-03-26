@@ -54,7 +54,6 @@ const data = [
 return (
   
     <Paper>
-       <Button variant="contained" style={{colour: '#000000', background: '#000000', marginRight: '30px'}} size='large' onClick= {()=> history.push('/GasDataLanding')}>Back</Button>
     <Typography component="h1" variant="h2" align = 'center'>
       Regular Sales
       </Typography>

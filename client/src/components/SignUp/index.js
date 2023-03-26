@@ -122,7 +122,7 @@ export default function SignUp() {
                 />
               </Grid>
               <Grid item xs={12}>
-              <FormControl fullWidth>
+              <FormControl fullWidth variant = 'outlined'>
                 <InputLabel id="demo-simple-select-label">Role</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
