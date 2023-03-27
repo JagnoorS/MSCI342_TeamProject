@@ -17,6 +17,14 @@ import history from "../Navigation/history"
 import Button from '@mui/material/Button';
 
 const App = () => {
+  const style={
+    backgroundImage:"url(https://wallpaper.dog/large/17056599.jpg)",
+    height: '93.1vh',
+    marginTop:'0px',
+    fontsize:'50px',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+}
   
 const data = [
   { x: '1/9/2022', y: 55.92  },
@@ -52,7 +60,7 @@ const data = [
 
 ];
 return (
-  
+  <div style={style}>
     <Paper>
     <Typography component="h1" variant="h2" align = 'center'>
       Super Net
@@ -73,6 +81,7 @@ return (
     </Chart>
 
   </Paper>
+  </div>
   
 );
 }

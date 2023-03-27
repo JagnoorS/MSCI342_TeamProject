@@ -23,9 +23,16 @@ const NavigationBar = () => {
   
 
   const getRole = () => {
+    
+
     callApigetRole()
       .then(res => {
-        console.log("callApigetRole returned: ", res)
+
+        if (!res) {
+          return
+        }  
+
+       console.log("callApigetRole returned: ", res)
         var parsed = JSON.parse(res.express);
         console.log("callApigetRole parsed: ", parsed);
         getrole(parsed[0].role);
@@ -39,6 +46,11 @@ const NavigationBar = () => {
   console.log("Navbar" + role)
 
   const callApigetRole = async () => {
+  
+    if (!currentUser) {
+      return
+    }
+
     const url = serverURL + "/api/getRole";
     console.log(url);
 
@@ -79,11 +91,11 @@ const NavigationBar = () => {
           </Typography>
 
 
-          <Button colors = "inherit" onClick= {()=> history.push('/')}>Home</Button>
-          {role === "Manager" ? <Button colors = "inherit" onClick= {()=> history.push('/ManagerLanding')}>Managers</Button> :   <div></div> }
-          {role === "Employee" ? <Button colors = "inherit" onClick= {()=> history.push('/EmployeeLanding')}>Employees</Button> : <div></div> }
-          <Button colors = "inherit" onClick= {()=> history.push('/CustomerLanding')}>Customers</Button> 
-          <Button colors = "inherit" onClick= {()=> history.push('/SignIn')}>Sign in</Button>
+          <Button style={{color: "white"}} onClick= {()=> history.push('/')}>Home</Button>
+          {role === "Manager" ? <Button style={{color: "white"}} onClick= {()=> history.push('/ManagerLanding')}>Managers</Button> :   <div></div> }
+          {role === "Employee" ? <Button style={{color: "white"}} onClick= {()=> history.push('/EmployeeLanding')}>Employees</Button> : <div></div> }
+          <Button style={{color: "white"}} onClick= {()=> history.push('/CustomerLanding')}>Customers</Button> 
+          <Button style={{color: "white"}} onClick= {()=> history.push('/SignIn')}>Login</Button>
           {/* <Button colors = "inherit" onClick= {()=> (logout)}>Sign out</Button> */}
         
 

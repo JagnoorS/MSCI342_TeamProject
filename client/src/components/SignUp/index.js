@@ -91,7 +91,7 @@ export default function SignUp() {
             alignItems: 'center',
           }}
         >
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h2">
             Sign Up
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
@@ -165,6 +165,7 @@ export default function SignUp() {
             <Button
               type="submit"
               fullWidth
+              style = {{color:'white' , background: '#B00000'}}
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
               onClick={() => {
@@ -187,7 +188,7 @@ export default function SignUp() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
+        <Copyright sx={{ mt: 0}} />
       </Container>
     </ThemeProvider>
   );

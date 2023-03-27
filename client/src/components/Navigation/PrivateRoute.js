@@ -61,6 +61,10 @@ export default function PrivateRoute({
   const getRole = () => {
     callApigetRole()
       .then(res => {
+        if (!res) {
+          return
+        }
+        
         console.log("callApigetRole returned: ", res)
         var parsed = JSON.parse(res.express);
         console.log("callApigetRole parsed: ", parsed);
@@ -75,6 +79,10 @@ export default function PrivateRoute({
   console.log(role)
 
   const callApigetRole = async () => {
+    if (!currentUser) { 
+      return 
+    }
+
     const url = serverURL + "/api/getRole";
     console.log(url);
 

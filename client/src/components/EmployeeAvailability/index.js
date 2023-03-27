@@ -81,7 +81,7 @@ export default function SignUp() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="md">
         <CssBaseline />
         <Box
           sx={{
@@ -91,12 +91,12 @@ export default function SignUp() {
             alignItems: 'center',
           }}
         >
-          <Typography component="h1" variant="h3">
+          <Typography component="h1" variant="h2">
             Log Availability
           </Typography>
 
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Typography component="h3" variant="h7" align='center'>
+            <Typography component="h3" variant="h5" align='center'>
             Please log your weekly availability
             </Typography>
             <Grid container spacing={2}>
@@ -141,7 +141,7 @@ export default function SignUp() {
                 <Grid item xs={12} sm={100}>
                 <TextField
                     id="standard-textarea"
-                    label="Tueasday"
+                    label="Tuesday"
                     required
                     fullWidth
                     placeholder="Tuesday"
@@ -217,6 +217,7 @@ export default function SignUp() {
                 type="Submit"
                 fullWidth
                 variant="contained"
+                style = {{color:'white' , background: '#B00000'}}
                 sx={{ mt: 0, mb: 0 }}
                 onClick={() => {
                   callApiaddAvailableHours();
@@ -232,7 +233,7 @@ export default function SignUp() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
+        <Copyright sx={{ mt: 1 }} />
       </Container>
     </ThemeProvider>
   );

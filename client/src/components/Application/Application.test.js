@@ -1,12 +1,9 @@
-import React from 'react';
-import ReactDOM  from 'react-dom';
-// import render from 'react-dom'
-import render from '@testing-library/react'
-import Application from '../Application'
+import {render, screen} from '@testing-library/react'
+import Application from "./index"
 
-//Unit test: Jagnoor Sangha
+describe('Application', ()=> {
+    it('loads the home page', ()=>{
+        render(<Application/>)
+    });
 
-test('renders application page', ()=> {
-    __esModule: true,
-    render(<Application/>);
 });

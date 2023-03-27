@@ -32,7 +32,7 @@ const ManagerLanding = () =>  {
         <div align='center'>
 
             <div>
-            <Card style={{width:'1000px', height: '225px', backgroundColor:'black', }}>
+            <Card style={{width:'1000px', height: '225px', backgroundColor:'#8B8B8B'}}>
                 <Typography variant='h3' style={{color:'white', marginTop:'15px'}}>
                     Employee Management
                 </Typography>
@@ -44,7 +44,7 @@ const ManagerLanding = () =>  {
             </div>
 
             <div>
-            <Card style={{width:'1000px', height: '225px', backgroundColor:'black', marginTop:'40px'}} >
+            <Card style={{width:'1000px', height: '225px', backgroundColor:'#8B8B8B', marginTop:'40px'}} >
                 <Typography variant='h3' style={{color:'white',  marginTop:'15px'}}>
                         Store Management
                 </Typography>
@@ -56,7 +56,7 @@ const ManagerLanding = () =>  {
 
 
             <div>
-            <Card style={{width:'1000px', height: '225px', backgroundColor:'black', marginTop: '40px' }}>
+            <Card style={{width:'1000px', height: '225px', backgroundColor:'#6D6D6D', marginTop: '40px' }}>
                 <Typography variant='h3' style={{color:'white',  marginTop:'15px'}}>
                     Customer Management
                 </Typography>

@@ -82,7 +82,7 @@ export default function SignUp() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="sm">
+      <Container component="main" maxWidth="md">
         <CssBaseline />
         <Box
           sx={{
@@ -92,7 +92,7 @@ export default function SignUp() {
             alignItems: 'center',
           }}
         >
-          <Typography component="h1" variant="h7">
+          <Typography component="h1" variant="h2">
             Daily Sales Entry
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
@@ -103,7 +103,8 @@ export default function SignUp() {
                   label="Reporting Date"
                   type="date"
                   defaultValue=""
-                  sx={{ width: 175 }}
+                  // sx={{ width: 1000 }}
+                  fullWidth
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -215,6 +216,7 @@ export default function SignUp() {
                 <Button
                   type="Submit"
                   fullWidth
+                  style = {{color:'white' , background: '#B00000'}}
                   variant="contained"
                   sx={{ mt: 1, mb: 2 }}
                   onClick={callApiaddSalesEntry}
@@ -230,7 +232,7 @@ export default function SignUp() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 22 }} />
+        <Copyright sx={{ mt: 1 }} />
       </Container>
     </ThemeProvider>
   );

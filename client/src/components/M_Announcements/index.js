@@ -158,6 +158,8 @@ export default function SignUp() {
                   </Grid>
                 </Grid>
             </Grid>
+
+            <Grid item xs={12} sm ={100} sx={2} >
             <Button
               type="Submit"
               style = {{color:'white' , background: '#B00000'}}
@@ -171,6 +173,7 @@ export default function SignUp() {
               }}
             >Post Announcement
             </Button>
+            </Grid>
           </Box>
         </Box>
         <Copyright sx={{ mt: 1 }} />
