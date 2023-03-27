@@ -29,7 +29,7 @@ const GraphLanding = () =>  {
                 <div align='center'>
 
                         <Typography variant="h2" component="div" gutterBottom style={{marginBottom:'20px'}}>
-                            Welcome to your Store and Gas Sales data visualization portal
+                            Welcome to Store and Gas Sales data visualization portal
                         </Typography>
                     <div>
                     <Card style={{width:'1000px', height: '225px', backgroundColor:'#8B8B8B'}}>

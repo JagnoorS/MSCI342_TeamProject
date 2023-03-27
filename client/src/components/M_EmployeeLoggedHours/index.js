@@ -167,14 +167,14 @@ export default function SignUp() {
         <DataGrid
           rows={rows}
           columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
+          pageSize={10}
+          rowsPerPageOptions={[10]}
         />
       </div>
             <div align='center'>
-                <Button variant="contained" style={{ color:'white' , background: '#B00000', marginRight: '30px', marginTop: '100px' }} size='large' onClick={handleClickOpenFilter}>
+                {/* <Button variant="contained" style={{ color:'white' , background: '#B00000', marginRight: '30px', marginTop: '100px' }} size='large' onClick={handleClickOpenFilter}>
                 Filter
-                </Button>
+                </Button> */}
                 <Dialog open={openFilter} onClose={handleCloseFilter}>
                     <DialogTitle>Filter Employee Hours </DialogTitle>
                     <DialogContent>

@@ -1,6 +1,6 @@
-describe('Smoke Test', () => {
-  it('Can view home', () => {
-    cy.visit('/');
-    // cy.contains("Welcome to FuelFlex's Customer Portal");
+describe('Page Render Test', () => {
+  it('Can view sign in page', () => {
+    cy.visit('/SignIn');
+    cy.contains("Login");
   })
 })
