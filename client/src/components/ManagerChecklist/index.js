@@ -259,7 +259,7 @@ const[rows, setRows] = useState([])
                 />
             </div>
             <div align='center'>
-                <Button variant="contained" style={{ colour: '#000000', background: '#000000', marginRight: '30px', marginTop: '100px' }} size='large' onClick={handleClickOpenTask}>
+                <Button variant="contained" style={{color:'white', background: '#B00000', marginRight: '30px', marginTop: '100px' }} size='large' onClick={handleClickOpenTask}>
                     Create Task
                 </Button>
                 <Dialog open={openTask} onClose={handleCloseTask}>
@@ -316,7 +316,7 @@ const[rows, setRows] = useState([])
                     </DialogActions>
                 </Dialog>
 
-                <Button variant="contained" style={{ colour: '#000000', background: '#000000', marginRight: '30px', marginTop: '100px' }} size='large' onClick={handleClickOpenEdit}>
+                <Button variant="contained" style = {{color:'white' , background: '#B00000', marginRight: '30px', marginTop: '100px' }} size='large' onClick={handleClickOpenEdit}>
                     Edit Task
                 </Button>
                 <Dialog open={openEdit} onClose={handleCloseEdit}>
@@ -381,7 +381,7 @@ const[rows, setRows] = useState([])
                     </DialogActions>
                 </Dialog>
 
-                <Button variant="contained" style={{ colour: '#000000', background: '#000000', marginRight: '30px', marginTop: '100px' }} size='large' onClick={handleClickOpenDelete}>
+                <Button variant="contained" style = {{color:'white' , background: '#B00000', marginRight: '30px', marginTop: '100px' }} size='large' onClick={handleClickOpenDelete}>
                     Delete Task
                 </Button>
                 <Dialog open={openDelete} onClose={handleCloseDelete}>

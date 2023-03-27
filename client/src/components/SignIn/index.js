@@ -20,7 +20,7 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="">
+      <Link color="inherit">
         FuelFlex
       </Link>{' '}
       {new Date().getFullYear()}
@@ -47,11 +47,12 @@ export default function SignIn() {
   const [password, setPassword] = React.useState("");
   const { Login } = useAuth();
   const { logout } = useAuth();
+  const { currentUser } = useAuth();
   const history = useHistory();
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="md">
         <CssBaseline />
         <Box
           sx={{
@@ -61,10 +62,10 @@ export default function SignIn() {
             alignItems: 'center',
           }}
         >
-          <Typography component="h1" variant="h5">
-            Login
+          <Typography component="h1" variant="h2">
+            Login Page
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 0}}>
             <TextField
               margin="normal"
               required
@@ -89,11 +90,13 @@ export default function SignIn() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <Button
+{!currentUser && (<Button
               type="submit"
               fullWidth
+              style = {{color:'white' , background: '#B00000'}}
+
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 1, mb: 2 }}
               onClick={() => {
                 alert("Login Successful")
                 Login(email, password)
@@ -103,20 +106,9 @@ export default function SignIn() {
             >
               Sign In
             </Button>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              onClick={() => {
-                alert("Logout Successful")
-                logout()
-                window.location.reload()
+            ) }
 
-              }}
-              >
-                Sign Out
-              </Button>
+            
             <Grid container>
               <Grid item xs>
                 <Link to="/PasswordForget" href="#" variant="body2">
@@ -128,6 +120,29 @@ export default function SignIn() {
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
+
+
+ {currentUser && (  <Button
+                type="submit"
+                
+                style = {{color:'white' , background: 'black'}}
+                fullWidth
+                variant="contained"
+                sx={{ mt: 4, mb: 1 }}
+  
+                onClick={() => {
+                  alert("Logout Successful")
+                  logout()
+                  window.location.reload()
+
+                }}
+                >
+                  Sign Out
+                </Button>) }
+
+
+              
+
             </Grid>
           </Box>
         </Box>

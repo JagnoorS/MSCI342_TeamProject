@@ -49,7 +49,7 @@ export default function PasswordForeget() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="md">
         <CssBaseline />
         <Box
           sx={{
@@ -59,7 +59,7 @@ export default function PasswordForeget() {
             alignItems: 'center',
           }}
         >
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h2">
             Reset Password
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
@@ -78,6 +78,7 @@ export default function PasswordForeget() {
             <Button
               type="submit"
               fullWidth
+              style = {{color:'white' , background: '#B00000'}}
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
               onClick={() => {
@@ -96,7 +97,7 @@ export default function PasswordForeget() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link to="/PasswordForeget" href="#" variant="body2">
+                <Link to="/SignUp" href="#" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

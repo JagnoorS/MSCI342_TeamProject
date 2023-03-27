@@ -172,7 +172,7 @@ export default function SignUp() {
         />
       </div>
             <div align='center'>
-                <Button variant="contained" style={{ colour: '#000000', background: '#000000', marginRight: '30px', marginTop: '100px' }} size='large' onClick={handleClickOpenFilter}>
+                <Button variant="contained" style={{ color:'white' , background: '#B00000', marginRight: '30px', marginTop: '100px' }} size='large' onClick={handleClickOpenFilter}>
                 Filter
                 </Button>
                 <Dialog open={openFilter} onClose={handleCloseFilter}>

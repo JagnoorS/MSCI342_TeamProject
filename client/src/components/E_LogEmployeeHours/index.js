@@ -74,7 +74,7 @@ export default function SignUp() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="md">
         <CssBaseline />
         <Box
           sx={{
@@ -85,8 +85,8 @@ export default function SignUp() {
           }}
         >
 
-          <Typography  component="h1" variant="h7">
-            Time Off Request Form
+          <Typography  component="h1" variant="h2">
+            Log Hours
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                 <Typography component="h2" variant="h5" align = 'left'>
@@ -176,6 +176,7 @@ export default function SignUp() {
             <Button
               type="Submit"
               fullWidth
+              style = {{color:'white' , background: '#B00000'}}
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
               onClick={() => {

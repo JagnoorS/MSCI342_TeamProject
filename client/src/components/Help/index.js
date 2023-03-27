@@ -69,7 +69,7 @@ export default function SignUp() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="md">
         <CssBaseline />
         <Box
           sx={{
@@ -82,12 +82,12 @@ export default function SignUp() {
           {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar> */}
-          <Typography component="h1" variant="h3">
+          <Typography component="h1" variant="h2">
             Help Page
           </Typography>
 
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Typography component="h3" variant="h7" align = 'center'>
+            <Typography component="h3" variant="h5" align = 'center'>
             Input your information and your error
             </Typography>
             <Grid container spacing={2}>
@@ -140,6 +140,7 @@ export default function SignUp() {
                   <Button
                 type="Submit"
                 fullWidth
+                style = {{color:'white' , background: '#B00000'}}
                 variant="contained"
                 sx={{ mt: 1, mb: 0}}
                 onClick={() => {

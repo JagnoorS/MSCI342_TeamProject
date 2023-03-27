@@ -80,7 +80,7 @@ export default function SignUp() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="md">
         <CssBaseline />
         <Box
           sx={{
@@ -91,7 +91,7 @@ export default function SignUp() {
           }}
         >
 
-          <Typography  component="h1" variant="h7">
+          <Typography  component="h1" variant="h2">
             Time Off Request Form
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
@@ -162,6 +162,7 @@ export default function SignUp() {
               type="Submit"
               fullWidth
               variant="contained"
+              style = {{color:'white' , background: '#B00000'}}
               sx={{ mt: 2, mb: 2 }}
               onClick={() => {
                 callApiaddTimeOff();
