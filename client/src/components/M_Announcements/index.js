@@ -81,7 +81,7 @@ export default function SignUp() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="md">
         <CssBaseline />
         <Box
           sx={{
@@ -92,8 +92,8 @@ export default function SignUp() {
           }}
         >
 
-          <Typography  component="h1" variant="h7">
-            Post Announcement
+          <Typography  component="h1" variant="h2">
+            Post Announcements
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -141,7 +141,7 @@ export default function SignUp() {
                 <FormControl fullWidth>
                 <InputLabel>Type</InputLabel>
                 <Select
-                    sx = {{mt : 1   }} 
+                    sx = {{mt : 2   }} 
                     label="Type"
                     value={type}
                     onChange={(e) => setType(e.target.value)}
@@ -160,6 +160,8 @@ export default function SignUp() {
             </Grid>
             <Button
               type="Submit"
+              style = {{color:'white' , background: '#B00000'}}
+
               fullWidth
               variant="contained"
               sx={{ mt: 2, mb: 2 }}

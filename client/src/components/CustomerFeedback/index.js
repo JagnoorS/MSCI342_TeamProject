@@ -80,23 +80,23 @@ export default function SignUp() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="md">
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 5,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
         >
 
-          <Typography component="h1" variant="h4" align = 'center'>
+          <Typography component="h1" variant="h2" align = 'center'>
             Customer Feedback
           </Typography>
 
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 2 }}>
-            <Typography component="h3" variant="h7" align  = 'center'>
+            <Typography component="h3" variant="h8" align  = 'center'>
             Input your information and your feedback
             </Typography>
             <Grid container spacing={2}>
@@ -193,6 +193,7 @@ export default function SignUp() {
 
               <Button
               type="Submit"
+              style = {{color:'white' , background: '#B00000'}}
               fullWidth
               variant="contained"
               sx={{ mt: 2, mb: 1 }}

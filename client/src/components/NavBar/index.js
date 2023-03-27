@@ -58,7 +58,7 @@ const NavigationBar = () => {
 
   return (
     <AuthProvider>
-    <AppBar position="static" style= {{backgroundColor:'red'}}>
+    <AppBar position="static" style= {{backgroundColor:'#B00000'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography

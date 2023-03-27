@@ -100,12 +100,13 @@ const[rows, setRows] = useState([])
   
   
     return (
-      <div style={{ height: 500, width: '100%' }}>
+      <div style={{ height: 500, width: '100%', backgroundColor: 'white'}}>
         <DataGrid
           rows={rows}
           columns={columns}
           pageSize={5}
           rowsPerPageOptions={[5]}
+
         />
       </div>
     );

@@ -94,11 +94,11 @@ export default function SignUp() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="md">
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 2,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -107,13 +107,11 @@ export default function SignUp() {
           {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar> */}
-          <Typography  component="h1" variant="h7">
+          <Typography  component="h1" variant="h2">
             Application form
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-                <Typography component="h2" variant="h5" align = 'left'>
-                    Personal Information
-                </Typography>
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 2 }}>
+
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField 
@@ -256,17 +254,11 @@ export default function SignUp() {
                 <MenuItem value={"Waterloo"}>Waterloo</MenuItem>
                 </Select>
                 </Grid>
-             
-
 
                 </Grid>
 
-           
-
-
-
             <Button
-              
+              style = {{color:'white' , background: '#B00000'}}
               type="Submit"
               fullWidth
               variant="contained"
@@ -282,7 +274,7 @@ export default function SignUp() {
 
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
+        <Copyright sx={{ mt: 0.1 }} />
       </Container>
     </ThemeProvider>
   );

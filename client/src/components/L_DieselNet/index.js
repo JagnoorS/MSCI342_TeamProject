@@ -61,6 +61,7 @@ return (
       </Typography>
     <Chart
       data={data}
+      style={{backgroundColor:'silver'}}
     >
       {/* <Palette scheme="Ocean"/> */}
       <ArgumentAxis />
