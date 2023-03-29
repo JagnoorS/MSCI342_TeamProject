@@ -71,10 +71,10 @@ const callApigetFeedback = async () => {
 const columns = [
     { field: 'FirstName', headerName: 'First Name', width: 190 },
     { field: 'LastName', headerName: 'Last Name', width: 190 },
-    { field: 'PhoneNumber', headerName: 'Phone Number', width: 190 },
-    { field: 'Email', headerName: 'Email', width: 190 },
+    { field: 'PhoneNumber', headerName: 'Phone Number', width: 210 },
+    { field: 'Email', headerName: 'Email', width: 220 },
     { field: 'Location', headerName: 'Location', width: 190 },
-    { field: 'Feedback', headerName: 'Feedback', width: 300 },
+    { field: 'Feedback', headerName: 'Feedback', width: 500 },
   ];
   
 

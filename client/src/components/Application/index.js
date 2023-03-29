@@ -265,7 +265,8 @@ export default function SignUp() {
               sx={{ mt: 3, mb: 2 }}
               onClick={() => {
                 callApiaddApplication();
-                alert('Your Application has been received')
+                alert('Your Application has been received!')
+                window.location.reload()
               }}
             >Apply
               

@@ -170,6 +170,7 @@ export default function SignUp() {
               onClick={() => {
                 callApiaddAnnouncement();
                 alert('Your Announcement has been Submitted!')
+                window.location.reload()
               }}
             >Post Announcement
             </Button>
