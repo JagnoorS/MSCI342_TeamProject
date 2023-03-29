@@ -70,7 +70,7 @@ const callApigettasks = async () => {
 
 const columns = [
     { field: 'TaskName', headerName: 'Task Name', width: 190 },
-    { field: 'TaskDescription', headerName: 'Description', width: 300 },
+    { field: 'TaskDescription', headerName: 'Description', width: 500 },
     { field: 'AssignedTo', headerName: 'Assigned To', width: 160 },
   ];
   

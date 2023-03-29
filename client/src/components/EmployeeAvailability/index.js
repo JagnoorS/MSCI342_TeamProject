@@ -222,6 +222,7 @@ export default function SignUp() {
                 onClick={() => {
                   callApiaddAvailableHours();
                   alert('Your Availability has been logged!');
+                  window.location.reload()
                 }}
               >Submit
             </Button>

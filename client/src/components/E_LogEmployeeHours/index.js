@@ -181,7 +181,8 @@ export default function SignUp() {
               sx={{ mt: 3, mb: 2 }}
               onClick={() => {
                 callApiaddEmployeeHours();
-                alert('Your Hours have been logged')
+                alert('Your Hours have been logged!')
+                window.location.reload()
               }}
             >Submit
             </Button>

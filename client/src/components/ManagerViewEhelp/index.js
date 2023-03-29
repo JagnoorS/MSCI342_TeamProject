@@ -71,7 +71,7 @@ const callApigetEmployeeHelp = async () => {
 const columns = [
     { field: 'FirstName', headerName: 'First Name', width: 200 },
     { field: 'LastName', headerName: 'Last Name', width: 200 },
-    { field: 'ProblemDescription', headerName: 'Problem Description', width: 350 },
+    { field: 'ProblemDescription', headerName: 'Problem Description', width: 500 },
   ];
   
 

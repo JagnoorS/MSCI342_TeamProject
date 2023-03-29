@@ -224,7 +224,7 @@ const callApigettasks = async () => {
 
 const columns = [
     { field: 'TaskName', headerName: 'Task Name', width: 190 },
-    { field: 'TaskDescription', headerName: 'Description', width: 300 },
+    { field: 'TaskDescription', headerName: 'Description', width: 500 },
     { field: 'AssignedTo', headerName: 'Assigned To', width: 160 },
   ];
   
@@ -255,7 +255,7 @@ const[rows, setRows] = useState([])
                 columns={columns}
                 pageSize={5}
                 rowsPerPageOptions={[5]}
-                checkboxSelection
+                
                 />
             </div>
             <div align='center'>
